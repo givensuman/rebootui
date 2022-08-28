@@ -1,0 +1,50 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "author": "givensuman",
+  "license": "MIT",
+  "private": false,
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "make": "node ./scripts/make_component.js",
+    "build": "rollup -c",
+    "build-ts": "tsc",
+    "dev": "start-storybook -p 1337 --disable-telemetry",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "@emotion/css": "^11.10.0",
+    "@emotion/react": "^11.10.0",
+    "bootstrap": "^5.2.0",
+    "classnames": "^2.3.1",
+    "nanoid": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.4.0",
+    "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-interactions": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/builder-vite": "^0.2.2",
+    "@storybook/builder-webpack4": "^6.5.10",
+    "@storybook/manager-webpack4": "^6.5.10",
+    "@storybook/react": "^6.5.10",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/bootstrap": "^5.2.3",
+    "@types/classnames": "^2.3.1",
+    "@types/react": "^18.0.17",
+    "babel-loader": "^8.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^2.78.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.9"
+  }
+}
