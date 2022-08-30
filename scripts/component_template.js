@@ -34,5 +34,5 @@ export const Default = Template.bind({})
 
 // index.ts
 exports.barrel = (name) =>
-  `export { ${name} as default } from './${name}
+  `export { ${name} as default } from './${name}'
 `;

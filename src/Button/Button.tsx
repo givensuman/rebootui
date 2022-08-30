@@ -37,10 +37,9 @@ export const Button = ({
       })}
       role="button"
       type={type}
+      {...props}
     >
       {props.children}
     </button>
   );
 };
-
-export default Button;
