@@ -1,5 +1,1 @@
-export { 
-    Collapse, 
-    CollapseButton, 
-    CollapseBody
-} from './Collapse'
+export { Collapse, CollapseButton, CollapseBody } from './Collapse';
