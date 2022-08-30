@@ -6,7 +6,8 @@ export type ButtonProps = {
     size?: 'lg' | 'sm',
     outlined?: boolean,
     active?: boolean,
-    disabled?: boolean
+    disabled?: boolean,
+    type?: 'button' | 'submit' | 'reset'
 } & React.HTMLAttributes<HTMLButtonElement>
 
 export const Button = ({
@@ -14,17 +15,19 @@ export const Button = ({
     outlined,
     size,
     active,
+    type = 'button',
     ...props
 }: ButtonProps) => {
     return (
         <button
-            {...props}
             className={cn('btn', {
                 [`btn-${variant}`]: !outlined && variant,
                 [`btn-outline-${variant}`]: outlined,
                 [`btn-${size}`]: size,
                 'active': active
             })}
+            role="button"
+            type={type}
         >
             {props.children}
         </button>

@@ -11,9 +11,8 @@ export default {
 
 const Template: ComponentStory<typeof ButtonGroup> = (args) => 
   <ButtonGroup {...args}>
-    <Button active>Oh</Button>
-    <Button>Hi</Button>
-    <Button>Mark</Button>
+    <Button active>Hi</Button>
+    <Button>Mom</Button>
   </ButtonGroup>
   
 export const Default = Template.bind({})
