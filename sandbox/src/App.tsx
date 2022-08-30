@@ -1,43 +1,35 @@
 import React from 'react'
-import {
-  Accordion,
-  AccordionItem,
-  AccordionHeader,
-  AccordionBody
-} from '../../src/Accordion/Accordion'
+import * as Card from '../../src/Card/Card'
 
 function App() {
   return (
     <div className="App">
-      {/* <div className="accordion" id="accordionExample">
-  <div className="accordion-item">
-    <h2 className="accordion-header" id="headingOne">
-      <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Accordion Item #1
-      </button>
-    </h2>
-    <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div className="accordion-body">
-        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
-  </div>
-  </div> */}
-      <Accordion flush id="123">
-        <AccordionItem>
-          <AccordionHeader>hi</AccordionHeader>
-          <AccordionBody stayOpen
-          >hellohellohellohellohellohellohellohello</AccordionBody>
-        </AccordionItem>
-        <AccordionItem>
-          <AccordionHeader id="321">hi</AccordionHeader>
-          <AccordionBody stayOpen>hellohellohellohellohellohellohellohello</AccordionBody>
-        </AccordionItem>
-        <AccordionItem>
-          <AccordionHeader>hi</AccordionHeader>
-          <AccordionBody stayOpen>hellohellohellohellohellohellohellohello</AccordionBody>
-        </AccordionItem>
-      </Accordion>
+      <Card.Card style={{
+        width: '18rem',
+        margin: '5em'
+      }}>
+        <Card.CardHeader>
+          A card
+        </Card.CardHeader>
+        <Card.CardBody>
+          <Card.CardTitle>
+            Title
+          </Card.CardTitle>
+          <Card.CardText>
+            Some quick example text o build on the card title and make up the bulk of the card's content.
+          </Card.CardText>
+        </Card.CardBody>
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">An item</li>
+          <li className="list-group-item">A second item</li>
+          <li className="list-group-item">A third item</li>
+        </ul>
+        <Card.CardBody>
+          <Card.CardLink href="#">Hi</Card.CardLink>
+          <Card.CardLink href="#">Hi</Card.CardLink>
+        </Card.CardBody>
+        <Card.CardFooter>Goodbye!</Card.CardFooter>
+      </Card.Card>
     </div>
   )
 }
