@@ -1,14 +1,11 @@
-import React from 'react'
-import cn from 'classnames'
+import React from 'react';
+import cn from 'classnames';
 
 export type CloseButtonProps = {
-  white?: boolean
-} & React.HTMLAttributes<HTMLButtonElement>
+  white?: boolean;
+} & React.HTMLAttributes<HTMLButtonElement>;
 
-export const CloseButton = ({
-  white,
-  ...props
-}: CloseButtonProps) => {
+export const CloseButton = ({ white, ...props }: CloseButtonProps) => {
   return (
     <button
       className={cn('btn-close', {
@@ -18,5 +15,5 @@ export const CloseButton = ({
       aria-label="Close"
       {...props}
     />
-  )
-}
+  );
+};

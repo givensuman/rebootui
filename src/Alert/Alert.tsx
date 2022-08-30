@@ -1,78 +1,79 @@
-import React, { createContext, useContext } from 'react'
-import cn from 'classnames'
+import React, { createContext, useContext } from 'react';
+import cn from 'classnames';
 
 export type AlertProps = {
-    variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link',
-    dismissable?: boolean
-} & React.HTMLAttributes<HTMLDivElement>
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'info'
+    | 'light'
+    | 'dark'
+    | 'link';
+  dismissable?: boolean;
+} & React.HTMLAttributes<HTMLDivElement>;
 
-const AlertContext = createContext('primary')
+const AlertContext = createContext('primary');
 
 export const Alert = ({
-    variant = 'primary',
-    dismissable,
-    ...props
+  variant = 'primary',
+  dismissable,
+  ...props
 }: AlertProps) => {
-    return (
-        <AlertContext.Provider value={variant}>
-            <div
-                {...props}
-                className={cn('alert', {
-                    [`alert-${variant}`]: variant
-                })}
-                role="alert"
-            >
-                {props.children}
-                {dismissable &&
-                    <button
-                        type="button"
-                        className="btn-close"
-                        data-bs-dismiss="alert"
-                        aria-label="Close"
-                    />
-                }
-            </div>
-        </AlertContext.Provider>
-    )
-}
+  return (
+    <AlertContext.Provider value={variant}>
+      <div
+        {...props}
+        className={cn('alert', {
+          [`alert-${variant}`]: variant
+        })}
+        role="alert"
+      >
+        {props.children}
+        {dismissable && (
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          />
+        )}
+      </div>
+    </AlertContext.Provider>
+  );
+};
 
 export const AlertLink = ({
-    ...props
+  ...props
 }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+  const variant = useContext(AlertContext);
 
-    const variant = useContext(AlertContext)
-
-    return (
-        <a
-            {...props}
-            className={cn({
-                [`alert-${variant}`]: variant
-            })}
-        >
-            {props.children}
-        </a>
-    )
-}
+  return (
+    <a
+      {...props}
+      className={cn({
+        [`alert-${variant}`]: variant
+      })}
+    >
+      {props.children}
+    </a>
+  );
+};
 
 export const AlertHeading = ({
-    ...props
+  ...props
 }: React.HTMLAttributes<HTMLHeadingElement>) => {
-    return (
-        <h4
-            {...props}
-            className="alert-heading"
-        >
-            {props.children}
-        </h4>
-    )
-}
+  return (
+    <h4 {...props} className="alert-heading">
+      {props.children}
+    </h4>
+  );
+};
 
 export const AlertBody = ({
-    ...props
+  ...props
 }: React.HTMLAttributes<HTMLParagraphElement>) => {
-    return (
-        <p {...props}>
-            {props.children}
-        </p>
-    )
-}
+  return <p {...props}>{props.children}</p>;
+};

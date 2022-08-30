@@ -1,6 +1,6 @@
 // component.tsx
-exports.component = name => 
-`import React from 'react'
+exports.component = (name) =>
+  `import React from 'react'
 import cn from 'classnames'
 
 export type ${name}Props = {
@@ -15,8 +15,8 @@ export const ${name} = ({
 `;
 
 // component.stories.jsx
-exports.story = name => 
-`import React from 'react'
+exports.story = (name) =>
+  `import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import ${name} from '.'
@@ -33,6 +33,6 @@ export const Default = Template.bind({})
 `;
 
 // index.ts
-exports.barrel = name => 
-`export { ${name} as default } from './${name}
+exports.barrel = (name) =>
+  `export { ${name} as default } from './${name}
 `;

@@ -1,12 +1,12 @@
-import React from 'react'
-import cn from 'classnames'
+import React from 'react';
+import cn from 'classnames';
 
 export type ButtonGroupProps = {
-  role?: 'group' | 'toolbar',
-  label?: string,
-  size?: 'lg' | 'sm',
-  vertical?: boolean,
-} & React.HTMLAttributes<HTMLDivElement>
+  role?: 'group' | 'toolbar';
+  label?: string;
+  size?: 'lg' | 'sm';
+  vertical?: boolean;
+} & React.HTMLAttributes<HTMLDivElement>;
 
 export const ButtonGroup = ({
   size,
@@ -27,7 +27,7 @@ export const ButtonGroup = ({
     >
       {props.children}
     </div>
-  )
-}
+  );
+};
 
-export default ButtonGroup
+export default ButtonGroup;

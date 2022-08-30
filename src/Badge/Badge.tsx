@@ -1,10 +1,19 @@
-import React from 'react'
-import cn from 'classnames'
+import React from 'react';
+import cn from 'classnames';
 
 export type BadgeProps = {
-  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link',
-  pill?: boolean
-} & React.HTMLAttributes<HTMLSpanElement>
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'info'
+    | 'light'
+    | 'dark'
+    | 'link';
+  pill?: boolean;
+} & React.HTMLAttributes<HTMLSpanElement>;
 
 export const Badge = ({
   variant = 'secondary',
@@ -21,8 +30,8 @@ export const Badge = ({
     >
       {props.children}
     </span>
-  )
-}
+  );
+};
 
 // const Component = makeComponent<Props>(Badge)
 // export default Component

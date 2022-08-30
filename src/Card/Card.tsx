@@ -1,27 +1,21 @@
-import React from 'react'
-import cn from 'classnames'
+import React from 'react';
+import cn from 'classnames';
 
-export type CardProps = {
-} & React.HTMLAttributes<HTMLDivElement>
+export type CardProps = {} & React.HTMLAttributes<HTMLDivElement>;
 
-export const Card = ({
-  ...props
-}: CardProps) => {
+export const Card = ({ ...props }: CardProps) => {
   return (
     <div className="card" {...props}>
       {props.children}
     </div>
-  )
-}
+  );
+};
 
 export type CardImageProps = {
-  placement?: 'top' | 'bottom' | 'overlay'
-} & React.ImgHTMLAttributes<HTMLImageElement>
+  placement?: 'top' | 'bottom' | 'overlay';
+} & React.ImgHTMLAttributes<HTMLImageElement>;
 
-export const CardImage = ({
-  placement,
-  ...props
-}: CardImageProps) => {
+export const CardImage = ({ placement, ...props }: CardImageProps) => {
   return (
     <img
       className={cn({
@@ -30,18 +24,18 @@ export const CardImage = ({
       })}
       {...props}
     />
-  )
-}
+  );
+};
 
 export const CardImageOverlay = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div className='card-img-overlay' {...props}>
+    <div className="card-img-overlay" {...props}>
       {props.children}
     </div>
-  )
-}
+  );
+};
 
 export const CardBody = ({
   ...props
@@ -50,8 +44,8 @@ export const CardBody = ({
     <div className="card-body" {...props}>
       {props.children}
     </div>
-  )
-}
+  );
+};
 
 export const CardTitle = ({
   ...props
@@ -60,8 +54,8 @@ export const CardTitle = ({
     <h5 className="card-title" {...props}>
       {props.children}
     </h5>
-  )
-}
+  );
+};
 
 export const CardSubtitle = ({
   ...props
@@ -70,8 +64,8 @@ export const CardSubtitle = ({
     <h6 className="card-subtitle" {...props}>
       {props.children}
     </h6>
-  )
-}
+  );
+};
 
 export const CardText = ({
   ...props
@@ -80,8 +74,8 @@ export const CardText = ({
     <p className="card-text" {...props}>
       {props.children}
     </p>
-  )
-}
+  );
+};
 
 export const CardLink = ({
   ...props
@@ -90,25 +84,21 @@ export const CardLink = ({
     <a className="card-link" {...props}>
       {props.children}
     </a>
-  )
-}
+  );
+};
 
-export const CardHeader = ({
-  ...props
-}: React.HTMLAttributes<HTMLElement>) => {
+export const CardHeader = ({ ...props }: React.HTMLAttributes<HTMLElement>) => {
   return (
     <div className="card-header" {...props}>
       {props.children}
     </div>
-  )
-}
+  );
+};
 
-export const CardFooter = ({
-  ...props
-}: React.HTMLAttributes<HTMLElement>) => {
+export const CardFooter = ({ ...props }: React.HTMLAttributes<HTMLElement>) => {
   return (
     <div className="card-footer" {...props}>
       {props.children}
     </div>
-  )
-}
+  );
+};

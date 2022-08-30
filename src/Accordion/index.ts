@@ -1,6 +1,6 @@
-export { 
-    Accordion,
-    AccordionItem,
-    AccordionHeader,
-    AccordionBody 
-} from './Accordion'
+export {
+  Accordion,
+  AccordionItem,
+  AccordionHeader,
+  AccordionBody
+} from './Accordion';
