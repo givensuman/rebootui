@@ -3,21 +3,15 @@ exports.component = name =>
 `import React from 'react'
 import cn from 'classnames'
 
-import makeComponent, { ComponentProps } from '../_yogi/makeComponent'
-
-export type Props = {
-} & ComponentProps<HTMLElement>
+export type ${name}Props = {
+} & React.HTMLAttributes<HTMLElement>
 
 export const ${name} = ({
-  children,
   ...props
-}: Props) => {
+}: ${name}Props) => {
   return (
   )
 }
-
-const Component = makeComponent<Props>(${name})
-export default Component
 `;
 
 // component.stories.jsx
@@ -25,7 +19,7 @@ exports.story = name =>
 `import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { ${name} } from './${name}'
+import ${name} from '.'
 
 export default {
   title: '${name}',
@@ -40,6 +34,5 @@ export const Default = Template.bind({})
 
 // index.ts
 exports.barrel = name => 
-`import ${name} from './${name}'
-export default ${name}
+`export { ${name} as default } from './${name}
 `;
