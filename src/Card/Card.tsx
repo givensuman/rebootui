@@ -15,28 +15,31 @@ export const Card = ({
 }
 
 export type CardImageProps = {
-  placement: 'top' | 'bottom' | 'overlay'
-} & React.HTMLAttributes<HTMLImageElement>
+  placement?: 'top' | 'bottom' | 'overlay'
+} & React.ImgHTMLAttributes<HTMLImageElement>
 
 export const CardImage = ({
-  placement = 'top',
+  placement,
   ...props
 }: CardImageProps) => {
   return (
-    <>
     <img
       className={cn({
-        [`card-image-${placement}`]: placement !== 'overlay',
-        'card-img': placement === 'overlay'
+        [`card-image-${placement}`]: placement,
+        'card-img': !placement
       })}
       {...props}
     />
-    {placement === 'overlay' && 
-    <div className="card-img-overlay">
+  )
+}
+
+export const CardImageOverlay = ({
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => {
+  return (
+    <div className='card-img-overlay' {...props}>
       {props.children}
     </div>
-    }
-    </>
   )
 }
 
