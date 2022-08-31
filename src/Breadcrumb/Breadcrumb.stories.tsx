@@ -16,3 +16,5 @@ const Template: ComponentStory<typeof Breadcrumb> = (args) => (
 );
 
 export const Default = Template.bind({});
+
+Default.args = {};

@@ -15,6 +15,7 @@ const Template: ComponentStory<typeof CloseButton> = (args) => (
 export const Default = Template.bind({});
 export const White = Template.bind({});
 
+Default.args = {};
 White.args = {
   white: true
 };

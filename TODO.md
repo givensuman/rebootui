@@ -2,6 +2,6 @@ Utility classes as props
 CSS prop
 
 Tooltip
-    Not working
-    Add delay
-    Custom components?
+Not working
+Add delay
+Custom components?

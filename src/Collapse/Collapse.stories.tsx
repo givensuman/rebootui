@@ -22,3 +22,5 @@ const Template: ComponentStory<typeof Collapse> = (
 );
 
 export const Default = Template.bind({});
+
+Default.args = {};

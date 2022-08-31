@@ -46,6 +46,8 @@ const Template: ComponentStory<typeof Card> = (
 
 export const Default = Template.bind({});
 
+Default.args = {};
+
 export const Overlay: ComponentStory<typeof Card> = (
   args: CardProps & CardImageProps
 ) => (

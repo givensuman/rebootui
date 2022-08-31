@@ -30,6 +30,8 @@ const Template: ComponentStory<typeof ${name}> = (args) =>
   <${name} {...args}>Hi mom</${name}>
   
 export const Default = Template.bind({})
+
+Default.args = {}
 `;
 
 // index.ts

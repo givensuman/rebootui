@@ -12,3 +12,5 @@ const Template: ComponentStory<typeof Badge> = (args) => (
 );
 
 export const Default = Template.bind({});
+
+Default.args = {};
