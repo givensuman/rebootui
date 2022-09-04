@@ -1,3 +1,1 @@
-export { 
-    Carousel, CarouselItem, CarouselCaption
-} from './Carousel'
+export { Carousel, CarouselItem, CarouselCaption } from './Carousel';

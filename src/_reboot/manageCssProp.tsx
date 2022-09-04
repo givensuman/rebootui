@@ -1,16 +1,12 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React from 'react'
-import { CSSObject, jsx } from '@emotion/react'
+import React from 'react';
+import { CSSObject, jsx } from '@emotion/react';
 
 export interface Props {
-    css?: CSSObject,
+  css?: CSSObject;
 }
 
 export default function attachCssProp<T>(Component: React.ComponentType<T>) {
-    return (props: T & Props) =>
-        <Component
-            css={props.css}
-            {...props}
-        />
+  return (props: T & Props) => <Component css={props.css} {...props} />;
 }

@@ -6,5 +6,5 @@ Not working
 Add delay
 Custom components?
 
-Carousel 
+Carousel
 Not working
