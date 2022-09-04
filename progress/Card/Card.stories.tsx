@@ -55,7 +55,7 @@ export const Overlay: ComponentStory<typeof Card> = (
     <CardHeader>Hi mom</CardHeader>
     <CardImage
       src="https://www.nasa.gov/sites/default/files/styles/full_width/public/thumbnails/image/main_image_star-forming_region_carina_nircam_final-1280.jpg"
-      alt="logo"
+      alt="Picture of space"
     />
     <CardImageOverlay>
       <CardBody>

@@ -28,6 +28,6 @@
     "declarationDir": "types",
     "emitDeclarationOnly": true
   },
-  "include": ["src/**/*", "utils", "utils"],
+  "include": ["src/**/*", "utils", "utils", "progress/ButtonGroup", "progress/Accordion"],
   "exclude": ["node_modules"]
 }

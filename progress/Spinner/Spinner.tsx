@@ -27,7 +27,7 @@ export const Spinner = ({
       className={cn({
         [`spinner-${type}`]: type,
         [`text-${variant}`]: variant,
-        [`spinner-${type}-small`]: small && type
+        [`spinner-${type}-sm`]: (small && type)
       })}
       role="status"
       {...props}
