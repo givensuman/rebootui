@@ -1,20 +1,259 @@
 import React from 'react';
-import Button from '../../src/Button/Button';
+import withPropellors from '../../src/index'
+
+const ButtonComponent = (props: React.HTMLAttributes<HTMLButtonElement>) => {
+  return (
+    <button {...props}>
+      {props.children}
+    </button>
+  )
+}
+
+const Button = withPropellors(ButtonComponent)
 
 function App() {
+  const [bg, setBg] = React.useState('lightblue')
+  const toggle = () => {
+    if (bg === 'lightblue') setBg('red')
+    else setBg('lightblue')
+  }
   return (
     <div className="App">
       <Button
-        variant="primary"
-        size="lg"
-        outlined={false}
-        onClick={() => alert('hi')}
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
         css={{
-          margin: '0.15em'
+          borderRadius: '5em'
         }}
+        onClick={toggle}
       >
-        Click me
+        Hello
       </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      <Button
+        padding={10}
+        marginLeft="10em"
+        marginTop={bg === 'lightblue' ? '5em' : '7.6em'}
+        backgroundColor={bg}
+        cursor="pointer"
+        css={{
+          borderRadius: '5em'
+        }}
+        onClick={toggle}
+      >
+        Hello
+      </Button>
+      
     </div>
   );
 }
