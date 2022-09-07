@@ -1,22 +1,18 @@
 import React from 'react';
-import withPropellors from '../../src/index'
+import withPropellors from '../../src/index';
 
 const ButtonComponent = (props: React.HTMLAttributes<HTMLButtonElement>) => {
-  return (
-    <button {...props}>
-      {props.children}
-    </button>
-  )
-}
+  return <button {...props}>{props.children}</button>;
+};
 
-const Button = withPropellors(ButtonComponent)
+const Button = withPropellors(ButtonComponent);
 
 function App() {
-  const [bg, setBg] = React.useState('lightblue')
+  const [bg, setBg] = React.useState('lightblue');
   const toggle = () => {
-    if (bg === 'lightblue') setBg('red')
-    else setBg('lightblue')
-  }
+    if (bg === 'lightblue') setBg('red');
+    else setBg('lightblue');
+  };
   return (
     <div className="App">
       <Button
@@ -253,7 +249,6 @@ function App() {
       >
         Hello
       </Button>
-      
     </div>
   );
 }
