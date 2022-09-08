@@ -1,8 +1,6 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import React from 'react';
-import classnames, { type Props } from '../_reboot/manageClassNames';
-import { jsx } from '@emotion/react';
+import classnames from 'classnames';
+import withProps from '../withProps';
 
 export type ButtonProps = {
   variant?:
@@ -20,8 +18,7 @@ export type ButtonProps = {
   active?: boolean;
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
-} & React.HTMLAttributes<HTMLButtonElement> &
-  Props;
+} & React.HTMLAttributes<HTMLButtonElement>
 
 const Button = ({
   variant = 'primary',
@@ -33,7 +30,7 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={classnames(props, 'btn', {
+      className={classnames('btn', {
         [`btn-${variant}`]: !outlined && variant,
         [`btn-outline-${variant}`]: outlined,
         [`btn-${size}`]: size,
@@ -41,7 +38,6 @@ const Button = ({
       })}
       role="button"
       type={type}
-      css={props.css}
       {...props}
     >
       {props.children}
@@ -49,4 +45,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default withProps<ButtonProps>(Button);
