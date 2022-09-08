@@ -1,1 +1,1 @@
-import * as styles from './globalStyles'
+import * as styles from './globalStyles';

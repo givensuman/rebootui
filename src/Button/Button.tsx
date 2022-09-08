@@ -18,7 +18,7 @@ export type ButtonProps = {
   active?: boolean;
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
-} & React.HTMLAttributes<HTMLButtonElement>
+} & React.HTMLAttributes<HTMLButtonElement>;
 
 const Button = ({
   variant = 'primary',

@@ -6,7 +6,7 @@ import cssProperties from 'known-css-properties';
 
 type Props = Partial<React.CSSProperties> & {
   css?: string | CSSObject;
-  className?: string
+  className?: string;
 };
 
 const cssStringToObject = (css: string): CSSObject => {
@@ -32,9 +32,7 @@ export default function withProps<T>(Component: React.ComponentType<T>) {
     <Component
       {...Object.fromEntries(
         Object.entries(props).filter(
-          ([key]) => !cssProperties.all.includes(
-            camelCaseToKebabCase(key)
-          )
+          ([key]) => !cssProperties.all.includes(camelCaseToKebabCase(key))
         )
       )}
       css={{
@@ -43,7 +41,7 @@ export default function withProps<T>(Component: React.ComponentType<T>) {
           (typeof props.css === 'string'
             ? cssStringToObject(props.css)
             : props.css))
-      }}      
+      }}
 
       // className={`${props.className} ${css`${props.css}`}`}
     />
