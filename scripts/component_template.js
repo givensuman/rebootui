@@ -1,18 +1,41 @@
 // component.tsx
 exports.component = (name) =>
-  `import React from 'react'
-import cn from 'classnames'
+  `/** @jsx jsx */
+/** @jsxRuntime classic */
+import React from 'react'
+import classnames from 'classnames'
+import { jsx } from '@emotion/react'
+import handleCssProp, { type CssProp } from './_reboot/handleCssProp'
 
-export type ${name}Props = {
+type ${name}Props = {
+  
+
+  css?: CssProp,
 } & React.HTMLAttributes<HTMLElement>
 
-export const ${name} = ({
-  ...props
-}: ${name}Props) => {
+const ${name} = React.forwardRef((
+  {
+
+    css,
+    ...props
+  }: ${name}Props, 
+  ref: React.Ref<any>
+) => {
   return (
+    <div
+      className={classnames()}
+
+      css={handleCssProp(css)}
+      ref={ref}
+
+      {...props}
+    >
+      {props.children}
+    </div>
   )
-}
-`;
+})
+
+export default ${name}`;
 
 // component.stories.jsx
 exports.story = (name) =>

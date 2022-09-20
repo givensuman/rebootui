@@ -7,7 +7,7 @@ import cssProperties from 'known-css-properties';
 type Props = Partial<React.CSSProperties> & {
   css?: string | CSSObject;
   className?: string;
-};
+}
 
 const cssStringToObject = (css: string): CSSObject => {
   const r = /(?<=^|;)\s*([^:]+)\s*:\s*([^;]+)\s*/g,
@@ -25,10 +25,10 @@ const camelCaseToKebabCase = (input: string): string =>
     ($, ofs) => (ofs ? '-' : '') + $.toLowerCase()
   );
 
-export default function withProps<T>(Component: React.ComponentType<T>) {
+export default function withProps<T>(Component) {
   return (props: T & Props) => (
     // @ts-ignore
-    // Emotion/TS bug
+    // Emotion HOC type error bug
     <Component
       {...Object.fromEntries(
         Object.entries(props).filter(
@@ -42,8 +42,6 @@ export default function withProps<T>(Component: React.ComponentType<T>) {
             ? cssStringToObject(props.css)
             : props.css))
       }}
-
-      // className={`${props.className} ${css`${props.css}`}`}
     />
   );
 }

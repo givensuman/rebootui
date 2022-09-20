@@ -1,18 +1,23 @@
 import React from 'react';
-import Button from '../../src/Button';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.js'
+
+import Alert from '../../src/Alert'
+import AlertBody from '../../src/AlertBody'
+import AlertHeading from '../../src/AlertHeading'
+import AlertLink from '../../src/AlertLink'
+
+import Button from '../../src/Button'
 
 function App() {
   return (
     <div className="App">
       <Button
-        className="btn"
-        marginTop="10em"
-        css={`
-          background-color: red;
-        `}
-        onClick={() => alert('hi')}
+        fontWeight="bold"
+        variant="secondary"
+        my={["5", "sm-2", "md-3", "lg-4"]}
       >
-        Hello
+        Click Me
       </Button>
     </div>
   );

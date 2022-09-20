@@ -16,15 +16,15 @@ if (fs.existsSync(dir))
   throw new Error('A component with that name already exists.');
 
 // create the folder
-fs.mkdirSync(dir);
+// fs.mkdirSync(dir);
 
 function writeFileErrorHandler(err) {
   if (err) throw err;
 }
 
 // component.tsx
-fs.writeFile(`${dir}/${name}.tsx`, component(name), writeFileErrorHandler);
+fs.writeFile(`src/${name}.tsx`, component(name), writeFileErrorHandler);
 // storybook.jsx
-fs.writeFile(`${dir}/${name}.stories.tsx`, story(name), writeFileErrorHandler);
+// fs.writeFile(`${dir}/${name}.stories.tsx`, story(name), writeFileErrorHandler);
 // index.tsx
-fs.writeFile(`${dir}/index.ts`, barrel(name), writeFileErrorHandler);
+// fs.writeFile(`${dir}/index.ts`, barrel(name), writeFileErrorHandler);
