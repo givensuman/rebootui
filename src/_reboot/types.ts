@@ -1,13 +1,11 @@
-export type Variant = 
-| 'primary'
-| 'secondary' 
-| 'success' 
-| 'danger' 
-| 'warning' 
-| 'info' 
-| 'light' 
-| 'dark'
+export type Variant =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'warning'
+  | 'info'
+  | 'light'
+  | 'dark';
 
-export type Size = 
-| 'lg'
-| 'sm'
+export type Size = 'lg' | 'sm';

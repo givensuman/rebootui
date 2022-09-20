@@ -134,11 +134,25 @@ const joinPropArray = (input: string[] | string = '', prefix: string) => {
   }
 };
 
-export default function handleUtilityClasses<T>(props: UtilityProps & T, ...rest: Argument[]) {
-
+export default function handleUtilityClasses<T>(
+  props: UtilityProps & T,
+  ...rest: Argument[]
+) {
   const {
-    m, mt, mb, ms, me, mx, my,
-    p, pt, pb, ps, pe, px, py,
+    m,
+    mt,
+    mb,
+    ms,
+    me,
+    mx,
+    my,
+    p,
+    pt,
+    pb,
+    ps,
+    pe,
+    px,
+    py,
     gap,
     text,
     fontSize,
@@ -151,7 +165,7 @@ export default function handleUtilityClasses<T>(props: UtilityProps & T, ...rest
     visibility,
 
     ...componentProps
-  } = props
+  } = props;
 
   const utilityClasses = classnames(...rest, {
     // Creates a class for every possible prop result of spacing prefixes, e.g. my="xl-5" or gap="2"
@@ -173,5 +187,5 @@ export default function handleUtilityClasses<T>(props: UtilityProps & T, ...rest
     [`${visibility}`]: visibility
   });
 
-  return [ utilityClasses, componentProps ] as const
+  return [utilityClasses, componentProps] as const;
 }

@@ -7,7 +7,7 @@ import cssProperties from 'known-css-properties';
 type Props = Partial<React.CSSProperties> & {
   css?: string | CSSObject;
   className?: string;
-}
+};
 
 const cssStringToObject = (css: string): CSSObject => {
   const r = /(?<=^|;)\s*([^:]+)\s*:\s*([^;]+)\s*/g,
