@@ -15,12 +15,7 @@ type TextType =
   | 'muted'
   | 'reset';
 
-type Breakpoints =
-  | 'sm'
-  | 'md'
-  | 'lg'
-  | 'xl'
-  | 'xxl'
+type Breakpoints = 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 type SpacingType =
   | '0'
@@ -36,7 +31,7 @@ type SpacingType =
   | 3
   | 4
   | 5
-  | `${Breakpoints}-${'1' | '2' | '3' | '4' | '5'}`
+  | `${Breakpoints}-${'1' | '2' | '3' | '4' | '5'}`;
 
 type VariantType =
   | 'primary'
@@ -95,7 +90,7 @@ type DisplayValue =
   | 'table-cell'
   | 'table-row'
   | 'flex'
-  | 'inline-flex'
+  | 'inline-flex';
 
 type BorderType =
   | '0'
@@ -121,28 +116,58 @@ type BorderProps = {
     | 'borderStart']?: BorderType;
 };
 
-type DisplayType = DisplayValue | `${Breakpoints | 'print'}-${DisplayValue}`
+type DisplayType = DisplayValue | `${Breakpoints | 'print'}-${DisplayValue}`;
 
-type FlexDirectionValue = 'row' | 'column' | 'row-reverse' | 'column-reverse'
-type FlexDirectionType = FlexDirectionValue | `${Breakpoints}-${FlexDirectionValue}`
+type FlexDirectionValue = 'row' | 'column' | 'row-reverse' | 'column-reverse';
+type FlexDirectionType =
+  | FlexDirectionValue
+  | `${Breakpoints}-${FlexDirectionValue}`;
 
-type JustifyContentValue = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'
-type JustifyContentType = JustifyContentValue | `${Breakpoints}-${JustifyContentValue}`
+type JustifyContentValue =
+  | 'start'
+  | 'end'
+  | 'center'
+  | 'between'
+  | 'around'
+  | 'evenly';
+type JustifyContentType =
+  | JustifyContentValue
+  | `${Breakpoints}-${JustifyContentValue}`;
 
-type AlignValue = 'start' | 'end' | 'center' | 'baseline' | 'stretch'
-type AlignType = AlignValue | `${Breakpoints}-${AlignValue}`
+type AlignValue = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+type AlignType = AlignValue | `${Breakpoints}-${AlignValue}`;
 
-type FlexPropsValue = 'fill' | `${'grow' | 'shrink'}-${'0' | '1'}`
-type FlexProps = FlexPropsValue | `${Breakpoints}-${FlexPropsValue}`
+type FlexPropsValue = 'fill' | `${'grow' | 'shrink'}-${'0' | '1'}`;
+type FlexProps = FlexPropsValue | `${Breakpoints}-${FlexPropsValue}`;
 
-type FlexWrapValue = 'nowrap' | 'wrap' | 'wrap-reverse'
-type FlexWrapType = FlexWrapValue | `${Breakpoints}-${FlexWrapValue}`
+type FlexWrapValue = 'nowrap' | 'wrap' | 'wrap-reverse';
+type FlexWrapType = FlexWrapValue | `${Breakpoints}-${FlexWrapValue}`;
 
-type OrderValue = 1 | 2 | 3 | 4 | 5 | '1' | '2' | '3' | '4' | '5' | 'first' | 'last'
-type OrderType = OrderValue | `${Breakpoints}-${OrderValue}`
+type OrderValue =
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | '1'
+  | '2'
+  | '3'
+  | '4'
+  | '5'
+  | 'first'
+  | 'last';
+type OrderType = OrderValue | `${Breakpoints}-${OrderValue}`;
 
-type AlignContentValue = 'start' | 'end' | 'center' | 'between' | 'around' | 'stretch'
-type AlignContentType = AlignContentValue | `${Breakpoints}-${AlignContentValue}`
+type AlignContentValue =
+  | 'start'
+  | 'end'
+  | 'center'
+  | 'between'
+  | 'around'
+  | 'stretch';
+type AlignContentType =
+  | AlignContentValue
+  | `${Breakpoints}-${AlignContentValue}`;
 
 export type UtilityProps = {
   bg?: VariantType | 'white' | 'transparent' | 'body';
@@ -152,17 +177,17 @@ export type UtilityProps = {
   rounded?: boolean | 'top' | 'end' | 'bottom' | 'start' | 'circle' | 'pill';
   borderRadius?: '0' | '1' | '2' | '3' | '4' | '5' | 1 | 2 | 3 | 4 | 5;
   borderOpacity?: '75' | '50' | '25' | '10' | 75 | 50 | 25 | 10;
-  color?: VariantType | 'body' | 'muted' | 'white',
-  textOpacity?: '25' | '50' | '75' | '100' | 25 | 50 | 75 | 100,
-  display?: DisplayType | DisplayType[],
-  flexDirection?: FlexDirectionType | FlexDirectionType[],
-  justifyContent?: JustifyContentType | JustifyContentType[],
-  alignItems?: AlignType | AlignType[],
-  alignSelf?: AlignType | AlignType[],
-  flex?: FlexProps | FlexProps[],
-  flexWrap?: FlexWrapType | FlexWrapType[],
-  order?: OrderType | OrderType[],
-  alignContent?: AlignContentType | AlignContentType[],
+  color?: VariantType | 'body' | 'muted' | 'white';
+  textOpacity?: '25' | '50' | '75' | '100' | 25 | 50 | 75 | 100;
+  display?: DisplayType | DisplayType[];
+  flexDirection?: FlexDirectionType | FlexDirectionType[];
+  justifyContent?: JustifyContentType | JustifyContentType[];
+  alignItems?: AlignType | AlignType[];
+  alignSelf?: AlignType | AlignType[];
+  flex?: FlexProps | FlexProps[];
+  flexWrap?: FlexWrapType | FlexWrapType[];
+  order?: OrderType | OrderType[];
+  alignContent?: AlignContentType | AlignContentType[];
 
   text?: TextType[] | TextType;
   fontSize?: '1' | '2' | '3' | '4' | '5' | '6' | 1 | 2 | 3 | 4 | 5 | 6;
