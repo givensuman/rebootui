@@ -5,18 +5,7 @@ type TextType =
   | 'start'
   | 'center'
   | 'end'
-  | 'sm-start'
-  | 'md-start'
-  | 'lg-start'
-  | 'xl-start'
-  | 'sm-center'
-  | 'md-center'
-  | 'lg-center'
-  | 'xl-center'
-  | 'sm-end'
-  | 'md-end'
-  | 'lg-end'
-  | 'xl-end'
+  | `${'sm' | 'md' | 'lg' | 'xl'}-${'start' | 'center' | 'end'}`
   | 'wrap'
   | 'nowrap'
   | 'break'
@@ -26,6 +15,13 @@ type TextType =
   | 'muted'
   | 'reset';
 
+type Breakpoints =
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'xl'
+  | 'xxl'
+
 type SpacingType =
   | '0'
   | '1'
@@ -34,48 +30,13 @@ type SpacingType =
   | '4'
   | '5'
   | 'auto'
-  | 'sm-0'
-  | 'sm-1'
-  | 'sm-2'
-  | 'sm-3'
-  | 'sm-4'
-  | 'sm-5'
-  | 'md-0'
-  | 'md-1'
-  | 'md-2'
-  | 'md-3'
-  | 'md-4'
-  | 'md-5'
-  | 'lg-0'
-  | 'lg-1'
-  | 'lg-2'
-  | 'lg-3'
-  | 'lg-4'
-  | 'lg-5'
-  | 'xl-0'
-  | 'xl-1'
-  | 'xl-2'
-  | 'xl-3'
-  | 'xl-4'
-  | 'xl-5'
-  | 'xl-0'
-  | 'xl-1'
-  | 'xl-2'
-  | 'xl-3'
-  | 'xl-4'
-  | 'xl-5'
-  | 'xxl-0'
-  | 'xxl-1'
-  | 'xxl-2'
-  | 'xxl-3'
-  | 'xxl-4'
-  | 'xxl-5'
   | 0
   | 1
   | 2
   | 3
   | 4
-  | 5;
+  | 5
+  | `${Breakpoints}-${'1' | '2' | '3' | '4' | '5'}`
 
 type VariantType =
   | 'primary'
@@ -124,6 +85,18 @@ const spacingPrefixes = [
   'gap'
 ];
 
+type DisplayValue =
+  | 'none'
+  | 'inline'
+  | 'inline-block'
+  | 'block'
+  | 'grid'
+  | 'table'
+  | 'table-cell'
+  | 'table-row'
+  | 'flex'
+  | 'inline-flex'
+
 type BorderType =
   | '0'
   | '1'
@@ -148,6 +121,29 @@ type BorderProps = {
     | 'borderStart']?: BorderType;
 };
 
+type DisplayType = DisplayValue | `${Breakpoints | 'print'}-${DisplayValue}`
+
+type FlexDirectionValue = 'row' | 'column' | 'row-reverse' | 'column-reverse'
+type FlexDirectionType = FlexDirectionValue | `${Breakpoints}-${FlexDirectionValue}`
+
+type JustifyContentValue = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'
+type JustifyContentType = JustifyContentValue | `${Breakpoints}-${JustifyContentValue}`
+
+type AlignValue = 'start' | 'end' | 'center' | 'baseline' | 'stretch'
+type AlignType = AlignValue | `${Breakpoints}-${AlignValue}`
+
+type FlexPropsValue = 'fill' | `${'grow' | 'shrink'}-${'0' | '1'}`
+type FlexProps = FlexPropsValue | `${Breakpoints}-${FlexPropsValue}`
+
+type FlexWrapValue = 'nowrap' | 'wrap' | 'wrap-reverse'
+type FlexWrapType = FlexWrapValue | `${Breakpoints}-${FlexWrapValue}`
+
+type OrderValue = 1 | 2 | 3 | 4 | 5 | '1' | '2' | '3' | '4' | '5' | 'first' | 'last'
+type OrderType = OrderValue | `${Breakpoints}-${OrderValue}`
+
+type AlignContentValue = 'start' | 'end' | 'center' | 'between' | 'around' | 'stretch'
+type AlignContentType = AlignContentValue | `${Breakpoints}-${AlignContentValue}`
+
 export type UtilityProps = {
   bg?: VariantType | 'white' | 'transparent' | 'body';
   bgOpacity?: '10' | '25' | '50' | '75' | '100' | 10 | 24 | 50 | 75 | 100;
@@ -156,7 +152,18 @@ export type UtilityProps = {
   rounded?: boolean | 'top' | 'end' | 'bottom' | 'start' | 'circle' | 'pill';
   borderRadius?: '0' | '1' | '2' | '3' | '4' | '5' | 1 | 2 | 3 | 4 | 5;
   borderOpacity?: '75' | '50' | '25' | '10' | 75 | 50 | 25 | 10;
-  color?: VariantType | 'body' | 'muted' | 'white' | 'black-50' | 'white-50';
+  color?: VariantType | 'body' | 'muted' | 'white',
+  textOpacity?: '25' | '50' | '75' | '100' | 25 | 50 | 75 | 100,
+  display?: DisplayType | DisplayType[],
+  flexDirection?: FlexDirectionType | FlexDirectionType[],
+  justifyContent?: JustifyContentType | JustifyContentType[],
+  alignItems?: AlignType | AlignType[],
+  alignSelf?: AlignType | AlignType[],
+  flex?: FlexProps | FlexProps[],
+  flexWrap?: FlexWrapType | FlexWrapType[],
+  order?: OrderType | OrderType[],
+  alignContent?: AlignContentType | AlignContentType[],
+
   text?: TextType[] | TextType;
   fontSize?: '1' | '2' | '3' | '4' | '5' | '6' | 1 | 2 | 3 | 4 | 5 | 6;
   fontWeight?: 'bold' | 'bolder' | 'semibold' | 'normal' | 'light' | 'lighter';
@@ -196,6 +203,17 @@ export default function handleUtilityClasses<T>(
     rounded,
     borderRadius,
     borderOpacity,
+    color,
+    textOpacity,
+    display,
+    flexDirection,
+    justifyContent,
+    alignItems,
+    alignSelf,
+    flex,
+    flexWrap,
+    order,
+    alignContent,
     m,
     mt,
     mb,
@@ -243,6 +261,17 @@ export default function handleUtilityClasses<T>(
       [`rounded-${rounded}`]: rounded && typeof rounded !== 'boolean',
       [`rounded-${String(borderRadius)}`]: borderRadius,
       [`border-opacity-${borderOpacity}`]: borderOpacity,
+      [`text-${color}`]: color,
+      [`text-opacity-${textOpacity}`]: textOpacity,
+      [joinPropArray(display, 'd-')]: display,
+      [joinPropArray(flexDirection, 'flex-')]: flexDirection,
+      [joinPropArray(justifyContent, 'justify-content-')]: justifyContent,
+      [joinPropArray(alignItems, 'align-items-')]: alignItems,
+      [joinPropArray(alignSelf, 'align-self-')]: alignSelf,
+      [joinPropArray(flex, 'flex-')]: flex,
+      [joinPropArray(flexWrap, 'flex-wrap-')]: flexWrap,
+      [joinPropArray(String(order), 'order-')]: order,
+      [joinPropArray(alignContent, 'align-content-')]: alignContent,
       // Creates a class for every possible prop result of spacing prefixes, e.g. my="xl-5" or gap="2"
       ...spacingPrefixes.reduce(
         (a, b) => ({

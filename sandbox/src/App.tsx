@@ -20,6 +20,10 @@ function App() {
         borderEnd={1}
         rounded={'top'}
         borderRadius="2"
+        color="danger"
+        textOpacity={25}
+        display={['sm-none', 'lg-none', 'xxl-inline']}
+        flex={['lg-fill', 'grow-0']}
       >
         Click Me
       </Button>
