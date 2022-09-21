@@ -77,6 +77,16 @@ type SpacingType =
   | 4
   | 5;
 
+type VariantType = 
+  | 'primary' 
+  | 'secondary' 
+  | 'success' 
+  | 'danger'
+  | 'warning'
+  | 'info' 
+  | 'light' 
+  | 'dark'
+
 type SpacingProps = {
   [K in
     | 'm'
@@ -93,7 +103,8 @@ type SpacingProps = {
     | 'pe'
     | 'px'
     | 'py'
-    | 'gap']?: SpacingType | SpacingType[];
+    | 'gap'
+  ]?: SpacingType | SpacingType[];
 };
 
 const spacingPrefixes = [
@@ -114,7 +125,27 @@ const spacingPrefixes = [
   'gap'
 ];
 
+type BorderType = '0' | '1' | '2' | '3' | '4' | '5' | 0 | 1 | 2 | 3 | 4 | 5 | boolean
+
+type BorderProps = {
+  [K in 
+    | 'border'
+    | 'borderTop'
+    | 'borderEnd'
+    | 'borderBottom'
+    | 'borderStart'
+  ]?: BorderType
+}
+
 export type UtilityProps = {
+  bg?: VariantType | 'white' | 'transparent' | 'body',
+  bgOpacity?: '10' | '25' | '50' | '75' | '100' | 10 | 24 | 50 | 75 | 100,
+  bgGradient?: boolean,
+  borderColor?: VariantType | 'white',
+  rounded?: boolean | 'top' | 'end' | 'bottom' | 'start' | 'circle' | 'pill',  
+  borderRadius?: '0' | '1' | '2' | '3' | '4' | '5' | 1 | 2 | 3 | 4 | 5,
+  borderOpacity?: '75' | '50' | '25' | '10' | 75 | 50 | 25 | 10,
+  color?: VariantType | 'body' | 'muted' | 'white' | 'black-50' | 'white-50',
   text?: TextType[] | TextType;
   fontSize?: '1' | '2' | '3' | '4' | '5' | '6' | 1 | 2 | 3 | 4 | 5 | 6;
   fontWeight?: 'bold' | 'bolder' | 'semibold' | 'normal' | 'light' | 'lighter';
@@ -124,7 +155,9 @@ export type UtilityProps = {
   textDecoration?: 'underline' | 'line-through' | 'none';
   align?: 'baseline' | 'top' | 'middle' | 'bottom' | 'text-top' | 'text-bottom';
   visibility?: 'visible' | 'invisible';
-} & SpacingProps;
+
+  className?: string,
+} & SpacingProps & BorderProps;
 
 const joinPropArray = (input: string[] | string = '', prefix: string) => {
   if (Array.isArray(input)) {
@@ -139,6 +172,18 @@ export default function handleUtilityClasses<T>(
   ...rest: Argument[]
 ) {
   const {
+    bg,
+    bgOpacity,
+    bgGradient,
+    border,
+    borderTop,
+    borderBottom,
+    borderStart,
+    borderEnd,
+    borderColor,
+    rounded,
+    borderRadius,
+    borderOpacity,
     m,
     mt,
     mb,
@@ -164,10 +209,25 @@ export default function handleUtilityClasses<T>(
     align,
     visibility,
 
+    className,
     ...componentProps
   } = props;
 
   const utilityClasses = classnames(...rest, {
+    [`bg-${bg}`]: bg,
+    'bg-gradient': bgGradient,
+    [`bg-${bgOpacity}`]: bgOpacity,
+    'border': border && typeof border === 'boolean',
+    [`border border-${String(border)}`]: border && typeof border !== 'boolean',
+    [`border-top-${String(borderTop)}`]: borderTop,
+    [`border-bottom-${String(borderBottom)}`]: borderBottom,
+    [`border-start-${String(borderStart)}`]: borderStart,
+    [`border-end-${String(borderEnd)}`]: borderEnd,
+    [`border-${borderColor}`]: borderColor,
+    'rounded': rounded && typeof rounded === 'boolean',
+    [`rounded-${rounded}`]: rounded && typeof rounded !== 'boolean',
+    [`rounded-${String(borderRadius)}`]: borderRadius,
+    [`border-opacity-${borderOpacity}`]: borderOpacity,
     // Creates a class for every possible prop result of spacing prefixes, e.g. my="xl-5" or gap="2"
     ...spacingPrefixes.reduce(
       (a, b) => ({
@@ -185,7 +245,7 @@ export default function handleUtilityClasses<T>(
     [`text-decoration-${textDecoration}`]: textDecoration,
     [`align-${align}`]: align,
     [`${visibility}`]: visibility
-  });
+  }, className);
 
   return [utilityClasses, componentProps] as const;
 }

@@ -14,8 +14,12 @@ function App() {
     <div className="App">
       <Button
         fontWeight="bold"
-        variant="secondary"
+        variant="light"
         my={['5', 'sm-2', 'md-3', 'lg-4']}
+        border={1}
+        borderEnd={1}
+        rounded={'top'}
+        borderRadius="2"
       >
         Click Me
       </Button>
