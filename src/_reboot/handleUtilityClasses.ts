@@ -17,20 +17,11 @@ type TextType =
 
 type Breakpoints = 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
+type NumOrString<T extends number> = T | `${T}`
+
 type SpacingType =
-  | '0'
-  | '1'
-  | '2'
-  | '3'
-  | '4'
-  | '5'
   | 'auto'
-  | 0
-  | 1
-  | 2
-  | 3
-  | 4
-  | 5
+  | NumOrString<1 | 2 | 3 | 4 | 5>
   | `${Breakpoints}-${'1' | '2' | '3' | '4' | '5'}`;
 
 type VariantType =
@@ -43,22 +34,13 @@ type VariantType =
   | 'light'
   | 'dark';
 
+type Opacities = NumOrString<10 | 25 | 50 | 75 | 100>
+
 type SpacingProps = {
   [K in
     | 'm'
-    | 'mt'
-    | 'mb'
-    | 'ms'
-    | 'me'
-    | 'mx'
-    | 'my'
     | 'p'
-    | 'pt'
-    | 'pb'
-    | 'ps'
-    | 'pe'
-    | 'px'
-    | 'py'
+    | `${'m' | 'p'}${'t' | 'b' | 's' | 'e' | 'x' | 'y'}`
     | 'gap']?: SpacingType | SpacingType[];
 };
 
@@ -93,18 +75,7 @@ type DisplayValue =
   | 'inline-flex';
 
 type BorderType =
-  | '0'
-  | '1'
-  | '2'
-  | '3'
-  | '4'
-  | '5'
-  | 0
-  | 1
-  | 2
-  | 3
-  | 4
-  | 5
+  | NumOrString<1 | 2 | 3 | 4 | 5>
   | boolean;
 
 type BorderProps = {
@@ -144,19 +115,12 @@ type FlexWrapValue = 'nowrap' | 'wrap' | 'wrap-reverse';
 type FlexWrapType = FlexWrapValue | `${Breakpoints}-${FlexWrapValue}`;
 
 type OrderValue =
-  | 1
-  | 2
-  | 3
-  | 4
-  | 5
-  | '1'
-  | '2'
-  | '3'
-  | '4'
-  | '5'
+  | NumOrString<1 | 2 | 3 | 4 | 5>
   | 'first'
   | 'last';
 type OrderType = OrderValue | `${Breakpoints}-${OrderValue}`;
+
+type FloatType = `${Breakpoints}-${'start' | 'end' | 'none'}`
 
 type AlignContentValue =
   | 'start'
@@ -171,14 +135,14 @@ type AlignContentType =
 
 export type UtilityProps = {
   bg?: VariantType | 'white' | 'transparent' | 'body';
-  bgOpacity?: '10' | '25' | '50' | '75' | '100' | 10 | 24 | 50 | 75 | 100;
+  bgOpacity?: Opacities;
   bgGradient?: boolean;
   borderColor?: VariantType | 'white';
   rounded?: boolean | 'top' | 'end' | 'bottom' | 'start' | 'circle' | 'pill';
-  borderRadius?: '0' | '1' | '2' | '3' | '4' | '5' | 1 | 2 | 3 | 4 | 5;
-  borderOpacity?: '75' | '50' | '25' | '10' | 75 | 50 | 25 | 10;
+  borderRadius?: NumOrString<0 | 1 | 2 | 3 | 4 | 5>;
+  borderOpacity?: Opacities;
   color?: VariantType | 'body' | 'muted' | 'white';
-  textOpacity?: '25' | '50' | '75' | '100' | 25 | 50 | 75 | 100;
+  textOpacity?: Opacities;
   display?: DisplayType | DisplayType[];
   flexDirection?: FlexDirectionType | FlexDirectionType[];
   justifyContent?: JustifyContentType | JustifyContentType[];
@@ -189,11 +153,13 @@ export type UtilityProps = {
   order?: OrderType | OrderType[];
   alignContent?: AlignContentType | AlignContentType[];
 
+  float?: FloatType | FloatType[],
+
   text?: TextType[] | TextType;
-  fontSize?: '1' | '2' | '3' | '4' | '5' | '6' | 1 | 2 | 3 | 4 | 5 | 6;
+  fontSize?: NumOrString<1 | 2 | 3 | 4 | 5 | 6>;
   fontWeight?: 'bold' | 'bolder' | 'semibold' | 'normal' | 'light' | 'lighter';
   fontStyle?: 'italic' | 'normal';
-  lineHeight?: '1' | 'sm' | 'base' | 'lg' | 1;
+  lineHeight?: NumOrString<1> | 'sm' | 'base' | 'lg';
   monospace?: boolean;
   textDecoration?: 'underline' | 'line-through' | 'none';
   align?: 'baseline' | 'top' | 'middle' | 'bottom' | 'text-top' | 'text-bottom';
@@ -239,6 +205,9 @@ export default function handleUtilityClasses<T>(
     flexWrap,
     order,
     alignContent,
+    // Link here
+    float,
+
     m,
     mt,
     mb,
@@ -297,6 +266,9 @@ export default function handleUtilityClasses<T>(
       [joinPropArray(flexWrap, 'flex-wrap-')]: flexWrap,
       [joinPropArray(String(order), 'order-')]: order,
       [joinPropArray(alignContent, 'align-content-')]: alignContent,
+
+      [joinPropArray(float, 'float-')]: float,
+
       // Creates a class for every possible prop result of spacing prefixes, e.g. my="xl-5" or gap="2"
       ...spacingPrefixes.reduce(
         (a, b) => ({

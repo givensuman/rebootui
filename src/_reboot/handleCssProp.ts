@@ -1,4 +1,4 @@
-import { jsx, css, CSSObject } from '@emotion/react';
+import { jsx, css, type CSSObject } from '@emotion/react';
 
 export type CssProp = string | CSSObject;
 

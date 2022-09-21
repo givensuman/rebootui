@@ -15,7 +15,8 @@ function App() {
       <Button
         fontWeight="bold"
         variant="light"
-        my={['5', 'sm-2', 'md-3', 'lg-4']}
+        my={5}
+        m={5}
         border={1}
         borderEnd={1}
         rounded={'top'}
