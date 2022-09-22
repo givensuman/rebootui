@@ -4,13 +4,12 @@ import React from 'react';
 import classnames from 'classnames';
 import { jsx } from '@emotion/react';
 import handleCssProp, { type CssProp } from './_reboot/handleCssProp';
+import handleUtilityClasses, { type UtilityProps } from './_reboot/handleUtilityClasses'
 
 type BreadcrumbItemProps = {
   active?: boolean;
   href?: string;
-
-  css?: CssProp;
-} & React.HTMLAttributes<HTMLLIElement>;
+} & React.HTMLAttributes<HTMLLIElement> & UtilityProps & CssProp
 
 const BreadcrumbItem = React.forwardRef(
   (
@@ -23,15 +22,18 @@ const BreadcrumbItem = React.forwardRef(
     }: BreadcrumbItemProps,
     ref: React.Ref<any>
   ) => {
+
+    const [ utilityClasses, filteredProps ] = handleUtilityClasses(props)
+
     return (
       <li
         className={classnames('breadcrumb-item', {
           active: active
-        })}
+        }, utilityClasses)}
         aria-current={active && 'page'}
         css={handleCssProp(css)}
         ref={ref}
-        {...props}
+        {...filteredProps}
       >
         {active ? (
           <span>{props.children}</span>

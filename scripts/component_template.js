@@ -6,12 +6,10 @@ import React from 'react'
 import classnames from 'classnames'
 import { jsx } from '@emotion/react'
 import handleCssProp, { type CssProp } from './_reboot/handleCssProp'
+import handleUtilityClasses, { type UtilityProps } from './_reboot/handleUtilityClasses'
 
 type ${name}Props = {
-  
-
-  css?: CssProp,
-} & React.HTMLAttributes<HTMLElement>
+} & React.HTMLAttributes<HTMLElement> & UtilityProps & CssProp
 
 const ${name} = React.forwardRef((
   {
@@ -22,13 +20,16 @@ const ${name} = React.forwardRef((
   ref: React.Ref<any>
 ) => {
   return (
+
+    const [ utilityClasses, filteredProps ] = handleUtilityClasses(props)
+
     <div
-      className={classnames()}
+      className={classnames(utilityClasses)}
 
       css={handleCssProp(css)}
       ref={ref}
 
-      {...props}
+      {...filteredProps}
     >
       {props.children}
     </div>

@@ -18,13 +18,7 @@ function App() {
         my={5}
         m={5}
         border={1}
-        borderEnd={1}
-        rounded={'top'}
-        borderRadius="2"
-        color="danger"
-        textOpacity={25}
-        display={['sm-none', 'lg-none', 'xxl-inline']}
-        flex={['lg-fill', 'grow-0']}
+        float={["sm-end", "md-start"]}
       >
         Click Me
       </Button>

@@ -4,14 +4,13 @@ import React, { createContext } from 'react';
 import classnames from 'classnames';
 import { jsx } from '@emotion/react';
 import handleCssProp, { type CssProp } from './_reboot/handleCssProp';
+import handleUtilityClasses, { type UtilityProps } from './_reboot/handleUtilityClasses';
 import { type Variant } from './_reboot/types';
 
 type AlertProps = {
   variant?: Variant;
   dismissible?: boolean;
-
-  css?: CssProp;
-} & React.HTMLAttributes<HTMLDivElement>;
+} & React.HTMLAttributes<HTMLDivElement> & UtilityProps & CssProp
 
 export const AlertContext = createContext('primary');
 
@@ -26,17 +25,20 @@ const Alert = React.forwardRef(
     }: AlertProps,
     ref: React.Ref<any>
   ) => {
+
+    const [ utilityClasses, filteredProps ] = handleUtilityClasses(props)
+
     return (
       <AlertContext.Provider value={variant}>
         <div
           className={classnames('alert', {
             [`alert-${variant}`]: variant,
             'alert-dismissible': dismissible
-          })}
+          }, utilityClasses)}
           role="alert"
           css={handleCssProp(css)}
           ref={ref}
-          {...props}
+          {...filteredProps}
         >
           {props.children}
           {dismissible && (
