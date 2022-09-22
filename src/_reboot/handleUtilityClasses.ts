@@ -35,8 +35,7 @@ type SpacingProps = {
     | 'm'
     | 'p'
     | `${'m' | 'p'}${'t' | 'b' | 's' | 'e' | 'x' | 'y'}`
-    | 'gap'
-  ]?: SpacingType | SpacingType[];
+    | 'gap']?: SpacingType | SpacingType[];
 };
 
 const spacingPrefixes = [
@@ -66,8 +65,7 @@ type BorderProps = {
     | 'borderTop'
     | 'borderEnd'
     | 'borderBottom'
-    | 'borderStart'
-  ]?: BorderType;
+    | 'borderStart']?: BorderType;
 };
 
 type DisplayValue =
