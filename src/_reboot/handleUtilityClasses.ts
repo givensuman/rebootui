@@ -22,12 +22,12 @@ type Breakpoints = 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 type NumOrString<T extends number> = T | `${T}`;
 
+type Opacities = NumOrString<10 | 25 | 50 | 75 | 100>;
+
 type SpacingType =
   | 'auto'
   | NumOrString<1 | 2 | 3 | 4 | 5>
   | `${Breakpoints}-${'1' | '2' | '3' | '4' | '5'}`;
-
-type Opacities = NumOrString<10 | 25 | 50 | 75 | 100>;
 
 // https://getbootstrap.com/docs/5.2/utilities/spacing/
 type SpacingProps = {
@@ -35,7 +35,8 @@ type SpacingProps = {
     | 'm'
     | 'p'
     | `${'m' | 'p'}${'t' | 'b' | 's' | 'e' | 'x' | 'y'}`
-    | 'gap']?: SpacingType | SpacingType[];
+    | 'gap'
+  ]?: SpacingType | SpacingType[];
 };
 
 const spacingPrefixes = [
@@ -56,6 +57,19 @@ const spacingPrefixes = [
   'gap'
 ];
 
+type BorderType = NumOrString<1 | 2 | 3 | 4 | 5> | boolean;
+
+// https://getbootstrap.com/docs/5.2/utilities/borders/
+type BorderProps = {
+  [K in
+    | 'border'
+    | 'borderTop'
+    | 'borderEnd'
+    | 'borderBottom'
+    | 'borderStart'
+  ]?: BorderType;
+};
+
 type DisplayValue =
   | 'none'
   | 'inline'
@@ -67,18 +81,6 @@ type DisplayValue =
   | 'table-row'
   | 'flex'
   | 'inline-flex';
-
-type BorderType = NumOrString<1 | 2 | 3 | 4 | 5> | boolean;
-
-// https://getbootstrap.com/docs/5.2/utilities/borders/
-type BorderProps = {
-  [K in
-    | 'border'
-    | 'borderTop'
-    | 'borderEnd'
-    | 'borderBottom'
-    | 'borderStart']?: BorderType;
-};
 
 type DisplayType = DisplayValue | `${Breakpoints | 'print'}-${DisplayValue}`;
 
