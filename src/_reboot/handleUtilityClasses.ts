@@ -156,33 +156,33 @@ export type UtilityProps = {
   float?: FloatType | FloatType[];
 
   // https://getbootstrap.com/docs/5.2/utilities/interactions/
-  userSelect?: 'all' | 'auto' | 'none',
-  pointerEvents?: 'auto' | 'none',
+  userSelect?: 'all' | 'auto' | 'none';
+  pointerEvents?: 'auto' | 'none';
 
   // https://getbootstrap.com/docs/5.2/utilities/opacity/
-  opacity?: NumOrString<25 | 50 | 75 | 100>,
+  opacity?: NumOrString<25 | 50 | 75 | 100>;
 
   // https://getbootstrap.com/docs/5.2/utilities/overflow/
-  overflow?: 'auto' | 'hidden' | 'visible' | 'scroll',
+  overflow?: 'auto' | 'hidden' | 'visible' | 'scroll';
 
   // https://getbootstrap.com/docs/5.2/utilities/position/
-  position?: 'static' | 'relative' | 'absolute' | 'fixed' | 'sticky',
-  top?: NumOrString<0 | 50 | 100>,
-  start?: NumOrString<0 | 50 | 100>,
-  bottom?: NumOrString<0 | 50 | 100>,
-  end?: NumOrString<0 | 50 | 100>,
-  translate?: 'middle' | 'middle-x' | 'middle-y'
+  position?: 'static' | 'relative' | 'absolute' | 'fixed' | 'sticky';
+  top?: NumOrString<0 | 50 | 100>;
+  start?: NumOrString<0 | 50 | 100>;
+  bottom?: NumOrString<0 | 50 | 100>;
+  end?: NumOrString<0 | 50 | 100>;
+  translate?: 'middle' | 'middle-x' | 'middle-y';
 
   // https://getbootstrap.com/docs/5.2/utilities/shadows/
-  shadow?: 'none' | Size | boolean
+  shadow?: 'none' | Size | boolean;
 
   // https://getbootstrap.com/docs/5.2/utilities/sizing/
-  width?: NumOrString<25 | 50 | 75 | 100> | 'auto' | '100vw',
-  height?: NumOrString<25 | 50 | 75 | 100> | 'auto' | '100vh',
-  maxWidth?: NumOrString<100> | boolean,
-  maxHeight?: NumOrString<100> | boolean,
-  minWidth?: '100vw' | boolean,
-  minHeight?: '100vh' | boolean,
+  width?: NumOrString<25 | 50 | 75 | 100> | 'auto' | '100vw';
+  height?: NumOrString<25 | 50 | 75 | 100> | 'auto' | '100vh';
+  maxWidth?: NumOrString<100> | boolean;
+  maxHeight?: NumOrString<100> | boolean;
+  minWidth?: '100vw' | boolean;
+  minHeight?: '100vh' | boolean;
 
   // https://getbootstrap.com/docs/5.2/utilities/text/
   text?: TextType[] | TextType;
@@ -195,13 +195,14 @@ export type UtilityProps = {
 
   // https://getbootstrap.com/docs/5.2/utilities/vertical-align/
   align?: 'baseline' | 'top' | 'middle' | 'bottom' | 'text-top' | 'text-bottom';
-  
+
   // https://getbootstrap.com/docs/5.2/utilities/visibility/
   visibility?: 'visible' | 'invisible';
 
   // Just the className prop, will be merged into classnames function below
   className?: string;
-} & SpacingProps & BorderProps;
+} & SpacingProps &
+  BorderProps;
 
 const joinPropArray = (input: string[] | string = '', prefix: string) => {
   if (Array.isArray(input)) {
@@ -303,7 +304,7 @@ export default function handleUtilityClasses<T>(
       [`border-start-${String(borderStart)}`]: borderStart,
       [`border-end-${String(borderEnd)}`]: borderEnd,
       [`border-${borderColor}`]: borderColor,
-      'rounded': rounded && typeof rounded === 'boolean',
+      rounded: rounded && typeof rounded === 'boolean',
       [`rounded-${rounded}`]: rounded && typeof rounded !== 'boolean',
       [`rounded-${String(borderRadius)}`]: borderRadius,
       [`border-opacity-${borderOpacity}`]: borderOpacity,
@@ -347,20 +348,12 @@ export default function handleUtilityClasses<T>(
       [`translate-${translate}`]: translate,
 
       // Shadow
-      'shadow': shadow && typeof shadow === 'boolean',
+      shadow: shadow && typeof shadow === 'boolean',
       [`shadow-${shadow}`]: shadow && typeof shadow !== 'boolean',
 
       // Sizing
-      [(
-        width === '100vw'
-        ? 'vw-100'
-        : `w-${width}`
-      )]: width,
-      [(
-        height === '100vh'
-        ? 'vh-100'
-        : `h-${height}`
-      )]: height,
+      [width === '100vw' ? 'vw-100' : `w-${width}`]: width,
+      [height === '100vh' ? 'vh-100' : `h-${height}`]: height,
       'min-vw-100': minWidth,
       'min-vh-100': minHeight,
       'mw-100': maxWidth,
