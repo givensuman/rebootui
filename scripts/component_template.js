@@ -19,10 +19,10 @@ const ${name} = React.forwardRef((
   }: ${name}Props, 
   ref: React.Ref<any>
 ) => {
+
+  const [ utilityClasses, filteredProps ] = handleUtilityClasses(props)
+
   return (
-
-    const [ utilityClasses, filteredProps ] = handleUtilityClasses(props)
-
     <div
       className={classnames(utilityClasses)}
 
