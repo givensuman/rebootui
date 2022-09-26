@@ -2,7 +2,8 @@
 // https://getbootstrap.com/docs/5.2/utilities/api/
 
 import classnames, { type Argument } from 'classnames';
-import { type Variant, type Size } from './types';
+import { type Variant, type Size, type Breakpoints } from './types';
+import joinPropArray from './joinPropArray'
 
 type TextType =
   | 'start'
@@ -17,8 +18,6 @@ type TextType =
   | 'capitalize'
   | 'muted'
   | 'reset';
-
-type Breakpoints = 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 type NumOrString<T extends number> = T | `${T}`;
 
@@ -203,14 +202,6 @@ export type UtilityProps = {
   className?: string;
 } & SpacingProps &
   BorderProps;
-
-const joinPropArray = (input: string[] | string = '', prefix: string) => {
-  if (Array.isArray(input)) {
-    return input.map((prop) => prefix + prop).join(' ');
-  } else {
-    return prefix + input;
-  }
-};
 
 export default function handleUtilityClasses<T>(
   props: UtilityProps & T,

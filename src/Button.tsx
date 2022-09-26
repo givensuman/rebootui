@@ -7,7 +7,7 @@ import handleCssProp, { type CssProp } from './_reboot/handleCssProp';
 import handleUtilityClasses, { type UtilityProps } from './_reboot/handleUtilityClasses';
 import { type Variant, type Size } from './_reboot/types';
 
-type ButtonProps = {
+export type ButtonProps = {
   variant?: Variant | 'link';
   type?: 'button' | 'submit' | 'reset';
   outlined?: boolean;
