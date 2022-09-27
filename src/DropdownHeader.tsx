@@ -1,37 +1,32 @@
 /** @jsx jsx */
 /** @jsxRuntime classic */
-import React from 'react'
-import classnames from 'classnames'
-import { jsx } from '@emotion/react'
-import handleCssProp, { type CssProp } from './_reboot/handleCssProp'
-import handleUtilityClasses, { type UtilityProps } from './_reboot/handleUtilityClasses'
+import React from 'react';
+import classnames from 'classnames';
+import { jsx } from '@emotion/react';
+import handleCssProp, { type CssProp } from './_reboot/handleCssProp';
+import handleUtilityClasses, {
+  type UtilityProps
+} from './_reboot/handleUtilityClasses';
 
-type DropdownHeaderProps = {
-} & React.HTMLAttributes<HTMLElement> & UtilityProps & CssProp
+type DropdownHeaderProps = {} & React.HTMLAttributes<HTMLHeadingElement> &
+  UtilityProps &
+  CssProp;
 
-const DropdownHeader = React.forwardRef((
-  {
+const DropdownHeader = React.forwardRef(
+  ({ css, ...props }: DropdownHeaderProps, ref: React.Ref<any>) => {
+    const [utilityClasses, filteredProps] = handleUtilityClasses(props);
 
-    css,
-    ...props
-  }: DropdownHeaderProps, 
-  ref: React.Ref<any>
-) => {
+    return (
+      <h6
+        className={classnames('dropdown-header', utilityClasses)}
+        css={handleCssProp(css)}
+        ref={ref}
+        {...filteredProps}
+      >
+        {props.children}
+      </h6>
+    );
+  }
+);
 
-  const [ utilityClasses, filteredProps ] = handleUtilityClasses(props)
-
-  return (
-    <div
-      className={classnames(utilityClasses)}
-
-      css={handleCssProp(css)}
-      ref={ref}
-
-      {...filteredProps}
-    >
-      {props.children}
-    </div>
-  )
-})
-
-export default DropdownHeader
+export default DropdownHeader;

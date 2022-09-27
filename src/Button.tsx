@@ -4,7 +4,9 @@ import React from 'react';
 import { jsx } from '@emotion/react';
 import classnames from 'classnames';
 import handleCssProp, { type CssProp } from './_reboot/handleCssProp';
-import handleUtilityClasses, { type UtilityProps } from './_reboot/handleUtilityClasses';
+import handleUtilityClasses, {
+  type UtilityProps
+} from './_reboot/handleUtilityClasses';
 import { type Variant, type Size } from './_reboot/types';
 
 export type ButtonProps = {
@@ -15,7 +17,8 @@ export type ButtonProps = {
   disabled?: boolean;
   active?: boolean;
 } & React.HTMLAttributes<HTMLButtonElement> &
-  UtilityProps & CssProp;
+  UtilityProps &
+  CssProp;
 
 const Button = React.forwardRef(
   (
@@ -32,7 +35,7 @@ const Button = React.forwardRef(
     }: ButtonProps,
     ref: React.Ref<any>
   ) => {
-    const [ utilityClasses, filteredProps ] =
+    const [utilityClasses, filteredProps] =
       handleUtilityClasses<ButtonProps>(props);
 
     return (

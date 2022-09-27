@@ -14,9 +14,7 @@ Spinners
 Toasts
 Tooltips
 
-hooks (useTooltip giving access to tooltip methods, etc.)
-    - utils like useCopyToClipboard, etc.
-
+hooks (useTooltip giving access to tooltip methods, etc.) - utils like useCopyToClipboard, etc.
 
 Reformat props to not be 1:1 with bootstrap, but as intuitive as possible
 

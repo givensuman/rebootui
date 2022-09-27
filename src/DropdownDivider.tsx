@@ -1,37 +1,30 @@
 /** @jsx jsx */
 /** @jsxRuntime classic */
-import React from 'react'
-import classnames from 'classnames'
-import { jsx } from '@emotion/react'
-import handleCssProp, { type CssProp } from './_reboot/handleCssProp'
-import handleUtilityClasses, { type UtilityProps } from './_reboot/handleUtilityClasses'
+import React from 'react';
+import classnames from 'classnames';
+import { jsx } from '@emotion/react';
+import handleCssProp, { type CssProp } from './_reboot/handleCssProp';
+import handleUtilityClasses, {
+  type UtilityProps
+} from './_reboot/handleUtilityClasses';
 
-type DropdownDividerProps = {
-} & React.HTMLAttributes<HTMLElement> & UtilityProps & CssProp
+type DropdownDividerProps = {} & React.HTMLAttributes<HTMLHRElement> &
+  UtilityProps &
+  CssProp;
 
-const DropdownDivider = React.forwardRef((
-  {
+const DropdownDivider = React.forwardRef(
+  ({ css, ...props }: DropdownDividerProps, ref: React.Ref<any>) => {
+    const [utilityClasses, filteredProps] = handleUtilityClasses(props);
 
-    css,
-    ...props
-  }: DropdownDividerProps, 
-  ref: React.Ref<any>
-) => {
+    return (
+      <hr
+        className={classnames('dropdown-divider', utilityClasses)}
+        css={handleCssProp(css)}
+        ref={ref}
+        {...filteredProps}
+      />
+    );
+  }
+);
 
-  const [ utilityClasses, filteredProps ] = handleUtilityClasses(props)
-
-  return (
-    <div
-      className={classnames(utilityClasses)}
-
-      css={handleCssProp(css)}
-      ref={ref}
-
-      {...filteredProps}
-    >
-      {props.children}
-    </div>
-  )
-})
-
-export default DropdownDivider
+export default DropdownDivider;

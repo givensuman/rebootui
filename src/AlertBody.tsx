@@ -4,21 +4,23 @@ import React from 'react';
 import classnames from 'classnames';
 import { jsx } from '@emotion/react';
 import handleCssProp, { type CssProp } from './_reboot/handleCssProp';
-import handleUtilityClasses, { type UtilityProps} from './_reboot/handleUtilityClasses'
+import handleUtilityClasses, {
+  type UtilityProps
+} from './_reboot/handleUtilityClasses';
 
-type AlertBodyProps = {
-} & React.HTMLAttributes<HTMLParagraphElement> & UtilityProps & CssProp
+type AlertBodyProps = {} & React.HTMLAttributes<HTMLParagraphElement> &
+  UtilityProps &
+  CssProp;
 
 const AlertBody = React.forwardRef(
   ({ css, ...props }: AlertBodyProps, ref: React.Ref<any>) => {
-
-    const [ utilityClasses, filteredProps ] = handleUtilityClasses(props)
+    const [utilityClasses, filteredProps] = handleUtilityClasses(props);
 
     return (
-      <p 
+      <p
         className={classnames(utilityClasses)}
-        css={handleCssProp(css)} 
-        ref={ref} 
+        css={handleCssProp(css)}
+        ref={ref}
         {...filteredProps}
       >
         {props.children}

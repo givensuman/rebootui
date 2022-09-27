@@ -1,37 +1,52 @@
 /** @jsx jsx */
 /** @jsxRuntime classic */
-import React from 'react'
-import classnames from 'classnames'
-import { jsx } from '@emotion/react'
-import handleCssProp, { type CssProp } from './_reboot/handleCssProp'
-import handleUtilityClasses, { type UtilityProps } from './_reboot/handleUtilityClasses'
+import React from 'react';
+import classnames from 'classnames';
+import { jsx } from '@emotion/react';
+import handleCssProp, { type CssProp } from './_reboot/handleCssProp';
+import handleUtilityClasses, {
+  type UtilityProps
+} from './_reboot/handleUtilityClasses';
 
 type DropdownMenuItemProps = {
-} & React.HTMLAttributes<HTMLElement> & UtilityProps & CssProp
+  active?: boolean;
+  disabled?: boolean;
+} & React.AnchorHTMLAttributes<HTMLAnchorElement> &
+  UtilityProps &
+  CssProp;
 
-const DropdownMenuItem = React.forwardRef((
-  {
+const DropdownMenuItem = React.forwardRef(
+  (
+    {
+      active,
+      disabled,
 
-    css,
-    ...props
-  }: DropdownMenuItemProps, 
-  ref: React.Ref<any>
-) => {
+      css,
+      ...props
+    }: DropdownMenuItemProps,
+    ref: React.Ref<any>
+  ) => {
+    const [utilityClasses, filteredProps] = handleUtilityClasses(props);
 
-  const [ utilityClasses, filteredProps ] = handleUtilityClasses(props)
+    return (
+      <a
+        className={classnames(
+          'dropdown-item',
+          {
+            active: active,
+            disabled: disabled
+          },
+          utilityClasses
+        )}
+        aria-current={active}
+        css={handleCssProp(css)}
+        ref={ref}
+        {...filteredProps}
+      >
+        {props.children}
+      </a>
+    );
+  }
+);
 
-  return (
-    <div
-      className={classnames(utilityClasses)}
-
-      css={handleCssProp(css)}
-      ref={ref}
-
-      {...filteredProps}
-    >
-      {props.children}
-    </div>
-  )
-})
-
-export default DropdownMenuItem
+export default DropdownMenuItem;

@@ -3,7 +3,7 @@
 
 import classnames, { type Argument } from 'classnames';
 import { type Variant, type Size, type Breakpoints } from './types';
-import joinPropArray from './joinPropArray'
+import joinPropArray from './joinPropArray';
 
 type TextType =
   | 'start'

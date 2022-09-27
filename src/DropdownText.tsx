@@ -1,37 +1,32 @@
 /** @jsx jsx */
 /** @jsxRuntime classic */
-import React from 'react'
-import classnames from 'classnames'
-import { jsx } from '@emotion/react'
-import handleCssProp, { type CssProp } from './_reboot/handleCssProp'
-import handleUtilityClasses, { type UtilityProps } from './_reboot/handleUtilityClasses'
+import React from 'react';
+import classnames from 'classnames';
+import { jsx } from '@emotion/react';
+import handleCssProp, { type CssProp } from './_reboot/handleCssProp';
+import handleUtilityClasses, {
+  type UtilityProps
+} from './_reboot/handleUtilityClasses';
 
-type DropdownTextProps = {
-} & React.HTMLAttributes<HTMLElement> & UtilityProps & CssProp
+type DropdownTextProps = {} & React.HTMLAttributes<HTMLSpanElement> &
+  UtilityProps &
+  CssProp;
 
-const DropdownText = React.forwardRef((
-  {
+const DropdownText = React.forwardRef(
+  ({ css, ...props }: DropdownTextProps, ref: React.Ref<any>) => {
+    const [utilityClasses, filteredProps] = handleUtilityClasses(props);
 
-    css,
-    ...props
-  }: DropdownTextProps, 
-  ref: React.Ref<any>
-) => {
+    return (
+      <span
+        className={classnames('dropdown-item-text', utilityClasses)}
+        css={handleCssProp(css)}
+        ref={ref}
+        {...filteredProps}
+      >
+        {props.children}
+      </span>
+    );
+  }
+);
 
-  const [ utilityClasses, filteredProps ] = handleUtilityClasses(props)
-
-  return (
-    <div
-      className={classnames(utilityClasses)}
-
-      css={handleCssProp(css)}
-      ref={ref}
-
-      {...filteredProps}
-    >
-      {props.children}
-    </div>
-  )
-})
-
-export default DropdownText
+export default DropdownText;
