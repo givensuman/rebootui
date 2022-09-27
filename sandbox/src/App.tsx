@@ -19,6 +19,12 @@ import Tooltip from '../../src/Tooltip'
 
 import Dropdown from '../../src/Dropdown'
 import DropdownButton from '../../src/DropdownButton'
+import DropdownMenu from '../../src/DropdownMenu'
+import DropdownMenuItem from '../../src/DropdownMenuItem'
+import DropdownHeader from '../../src/DropdownHeader'
+import DropdownText from '../../src/DropdownText'
+import DropdownDivider from '../../src/DropdownDivider'
+
 
 
 function App() {
@@ -31,6 +37,18 @@ function App() {
         }}>
           Hi mom
         </DropdownButton>
+        <DropdownMenu>
+          <DropdownHeader>
+            welcome
+          </DropdownHeader>
+          <DropdownMenuItem>
+            hi
+          </DropdownMenuItem>
+          <DropdownDivider />
+          <DropdownMenuItem disabled>
+            bye
+          </DropdownMenuItem>
+        </DropdownMenu>
       </Dropdown>
     </div>
   )
