@@ -1,69 +1,50 @@
-/** @jsx jsx */
-/** @jsxRuntime classic */
-import React from 'react';
-import { jsx } from '@emotion/react';
-import classnames from 'classnames';
-import handleCssProp, { type CssProp } from './_reboot/handleCssProp';
-import handleUtilityClasses, {
-  type UtilityProps
-} from './_reboot/handleUtilityClasses';
-import { type Variant, type Size } from './_reboot/types';
+import React from 'react'
+import classnames from 'classnames'
+import Box from './Box'
+import { type GlobalProps, type Variant, type Size } from './_reboot/types'
 
-export type ButtonProps = {
-  variant?: Variant | 'link';
-  type?: 'button' | 'submit' | 'reset';
-  outlined?: boolean;
-  size?: Size;
-  disabled?: boolean;
-  active?: boolean;
-} & React.HTMLAttributes<HTMLButtonElement> &
-  UtilityProps &
-  CssProp;
+type ButtonProps = {
+    variant?: Variant | 'link';
+    type?: 'button' | 'submit' | 'reset';
+    outlined?: boolean;
+    size?: Size;
+    disabled?: boolean;
+    active?: boolean;
+} & GlobalProps & React.HTMLAttributes<HTMLButtonElement>
 
 const Button = React.forwardRef(
-  (
-    {
-      variant = 'primary',
-      type,
-      outlined,
-      size,
-      disabled,
-      active,
+    (
+        {
+            variant = 'primary',
+            type = 'button',
+            outlined,
+            size,
+            disabled,
+            active,
 
-      css,
-      ...props
-    }: ButtonProps,
-    ref: React.Ref<any>
-  ) => {
-    const [utilityClasses, filteredProps] =
-      handleUtilityClasses<ButtonProps>(props);
+            ...props
+        }: ButtonProps,
+        ref: React.Ref<any>
+    ) => {
+        return (
+            <Box
+                as="button"
+                className={classnames('btn', {
+                    [`btn-${variant}`]: variant && !outlined,
+                    [`btn-outline-${variant}`]: outlined,
+                    [`btn-${size}`]: size,
+                    disabled: disabled,
+                    active: active
+                  })}
+                type={type}
 
-    return (
-      <button
-        className={classnames(
-          'btn',
-          {
-            [`btn-${variant}`]: variant && !outlined,
-            [`btn-outline-${variant}`]: outlined,
-            [`btn-${size}`]: size,
-            disabled: disabled,
-            active: active
-          },
-          utilityClasses
-        )}
-        type={type}
-        disabled={disabled}
-        aria-pressed={active}
-        aria-disabled={disabled}
-        role="button"
-        css={handleCssProp(css)}
-        ref={ref}
-        {...filteredProps}
-      >
-        {props.children}
-      </button>
-    );
-  }
-);
+                ref={ref}
+                {...props}
+        >
+                {props.children}
+            </Box>
+        )
+    }
+)
 
-export default Button;
+export default Button

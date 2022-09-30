@@ -124,7 +124,7 @@ type AlignContentType =
 
 export type UtilityProps = {
   // https://getbootstrap.com/docs/5.2/utilities/background/
-  bgColor?: Variant | 'white' | 'transparent' | 'body';
+  bg?: Variant | 'white' | 'transparent' | 'body';
   bgOpacity?: Opacities;
   bgGradient?: boolean;
 
@@ -135,7 +135,7 @@ export type UtilityProps = {
   borderOpacity?: Opacities;
 
   // https://getbootstrap.com/docs/5.2/utilities/colors/
-  textColor?: Variant | 'body' | 'muted' | 'white';
+  color?: Variant | 'body' | 'muted' | 'white';
   textOpacity?: Opacities;
 
   // https://getbootstrap.com/docs/5.2/utilities/display/
@@ -200,14 +200,15 @@ export type UtilityProps = {
 
   // Just the className prop, will be merged into classnames function below
   className?: string;
-} & SpacingProps & BorderProps;
+} & SpacingProps &
+  BorderProps;
 
 export default function handleUtilityClasses<T>(
   props: UtilityProps & T,
   ...rest: Argument[]
 ) {
   const {
-    bgColor,
+    bg,
     bgOpacity,
     bgGradient,
     border,
@@ -219,7 +220,7 @@ export default function handleUtilityClasses<T>(
     rounded,
     borderRadius,
     borderOpacity,
-    textColor,
+    color,
     textOpacity,
     display,
     flexDirection,
@@ -281,7 +282,7 @@ export default function handleUtilityClasses<T>(
     ...rest,
     {
       // Background
-      [`bg-${bgColor}`]: bgColor,
+      [`bg-${bg}`]: bg,
       'bg-gradient': bgGradient,
       [`bg-${bgOpacity}`]: bgOpacity,
       border: border && typeof border === 'boolean',
@@ -300,7 +301,7 @@ export default function handleUtilityClasses<T>(
       [`border-opacity-${borderOpacity}`]: borderOpacity,
 
       // Colors
-      [`text-${textColor}`]: textColor,
+      [`text-${color}`]: color,
       [`text-opacity-${textOpacity}`]: textOpacity,
 
       // Display property

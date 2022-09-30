@@ -1,9 +1,3 @@
-import { type CssProp } from "./handleCssProp";
-import { type UtilityProps } from "./handleUtilityClasses";
-
-export type GlobalProps = {
-} & CssProp & UtilityProps
-
 export type Variant =
   | 'primary'
   | 'secondary'
