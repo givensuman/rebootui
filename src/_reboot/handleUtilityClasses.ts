@@ -200,7 +200,8 @@ export type UtilityProps = {
 
   // Just the className prop, will be merged into classnames function below
   className?: string;
-} & SpacingProps & BorderProps;
+} & SpacingProps &
+  BorderProps;
 
 export default function handleUtilityClasses<T>(
   props: UtilityProps & T,

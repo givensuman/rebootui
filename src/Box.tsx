@@ -11,15 +11,15 @@ import { GlobalProps } from './_reboot/types';
 // A more precise version of just React.ComponentPropsWithoutRef on its own
 export type PropsOf<
   C extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>
-> = JSX.LibraryManagedAttributes<C, React.ComponentPropsWithoutRef<C>>
+> = JSX.LibraryManagedAttributes<C, React.ComponentPropsWithoutRef<C>>;
 
 type AsProp<C extends React.ElementType> = {
   /**
    * An override of the default HTML tag.
    * Can also be another React component.
    */
-  as?: C
-}
+  as?: C;
+};
 
 /**
  * Allows for extending a set of props (`ExtendedProps`) by an overriding set of props
@@ -29,7 +29,7 @@ type AsProp<C extends React.ElementType> = {
 export type ExtendableProps<
   ExtendedProps = {},
   OverrideProps = {}
-> = OverrideProps & Omit<ExtendedProps, keyof OverrideProps>
+> = OverrideProps & Omit<ExtendedProps, keyof OverrideProps>;
 
 /**
  * Allows for inheriting the props from the specified element type so that
@@ -39,7 +39,7 @@ export type ExtendableProps<
 export type InheritableElementProps<
   C extends React.ElementType,
   Props = {}
-> = ExtendableProps<PropsOf<C>, Props>
+> = ExtendableProps<PropsOf<C>, Props>;
 
 /**
  * A more sophisticated version of `InheritableElementProps` where
@@ -48,26 +48,33 @@ export type InheritableElementProps<
 export type PolymorphicComponentProps<
   C extends React.ElementType,
   Props = {}
-> = InheritableElementProps<C, Props & AsProp<C>>
+> = InheritableElementProps<C, Props & AsProp<C>>;
 
 /** * Utility type to extract the `ref` prop from a polymorphic component */
-export type PolymorphicRef<  C extends React.ElementType> = React.ComponentPropsWithRef<C>['ref']
+export type PolymorphicRef<C extends React.ElementType> =
+  React.ComponentPropsWithRef<C>['ref'];
 /** * A wrapper of `PolymorphicComponentProps` that also includes the `ref` prop for the polymorphic component */
-export type PolymorphicComponentPropsWithRef<  C extends React.ElementType,  Props = {}> = PolymorphicComponentProps<C, Props> & { ref?: PolymorphicRef<C> }
+export type PolymorphicComponentPropsWithRef<
+  C extends React.ElementType,
+  Props = {}
+> = PolymorphicComponentProps<C, Props> & { ref?: PolymorphicRef<C> };
 
 type Props = {
-  children?: React.ReactNode,
-  className?: string
-} & GlobalProps
+  children?: React.ReactNode;
+  className?: string;
+} & GlobalProps;
 
-type BoxProps<C extends React.ElementType> = PolymorphicComponentPropsWithRef<  
+type BoxProps<C extends React.ElementType> = PolymorphicComponentPropsWithRef<
   C,
   Props
->
+>;
 
-type Component = <C extends React.ElementType = 'div'>(  props: BoxProps<C>,) => React.ReactElement | null
+type Component = <C extends React.ElementType = 'div'>(
+  props: BoxProps<C>
+) => React.ReactElement | null;
 
-export const Box: Component = React.forwardRef(<C extends React.ElementType = 'div'>(
+export const Box: Component = React.forwardRef(
+  <C extends React.ElementType = 'div'>(
     {
       as,
       children,
@@ -76,23 +83,23 @@ export const Box: Component = React.forwardRef(<C extends React.ElementType = 'd
 
       ...props
     }: BoxProps<C>,
-    ref?: PolymorphicRef<C>,  ) => {
+    ref?: PolymorphicRef<C>
+  ) => {
+    const Component = as || 'div';
 
-    const Component = as || 'div'
-
-    const [ utilityClasses, filteredProps ] = handleUtilityClasses(props)
+    const [utilityClasses, filteredProps] = handleUtilityClasses(props);
 
     return (
       <Component
         className={classnames(className, utilityClasses)}
         css={handleCssProp(css)}
         ref={ref}
-        {...filteredProps} 
-      >        
+        {...filteredProps}
+      >
         {children}
       </Component>
-    )
-  },
-)
+    );
+  }
+);
 
-export default Box
+export default Box;

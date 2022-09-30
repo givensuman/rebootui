@@ -5,12 +5,10 @@ export type CssProp = {
 };
 
 export default function handleCssProp(cssProp?: string | CSSObject) {
-  if (!cssProp) return null
-  return (
-    typeof cssProp === 'string'
+  if (!cssProp) return null;
+  return typeof cssProp === 'string'
     ? css`
         ${cssProp}
       `
-    : cssProp
-  )
+    : cssProp;
 }

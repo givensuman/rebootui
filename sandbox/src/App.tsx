@@ -3,7 +3,7 @@ import '@popperjs/core';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 
-import Box from '../../src/Box'
+import Box from '../../src/Box';
 import { type GlobalProps } from '../../src/_reboot/types';
 
 const Button = (props: GlobalProps) => {
@@ -20,16 +20,13 @@ const Button = (props: GlobalProps) => {
     >
       Click Me
     </Box>
-  )
-}
+  );
+};
 
 function App() {
-
   return (
     <div>
-
       <Button />
-
     </div>
   );
 }
