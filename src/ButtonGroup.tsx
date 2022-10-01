@@ -8,7 +8,8 @@ type ButtonGroupProps = {
   label?: string;
   size?: Size;
   vertical?: boolean;
-} & GlobalProps & React.HTMLAttributes<HTMLDivElement>
+} & GlobalProps &
+  React.HTMLAttributes<HTMLDivElement>;
 
 const ButtonGroup = React.forwardRef(
   (

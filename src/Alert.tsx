@@ -6,16 +6,11 @@ import { type GlobalProps, type Variant } from './_reboot/types';
 type AlertProps = {
   variant?: Variant;
   dismissible?: boolean;
-} & GlobalProps
+} & GlobalProps;
 
 const Alert = React.forwardRef(
   (
-    {
-      as = 'div',
-      variant = 'primary',
-      dismissible,
-      ...props
-    }: AlertProps,
+    { as = 'div', variant = 'primary', dismissible, ...props }: AlertProps,
     ref: React.Ref<any>
   ) => {
     return (

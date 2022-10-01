@@ -1,6 +1,6 @@
 // component.tsx
 exports.component = (name) =>
-`import React from 'react';
+  `import React from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps } from './_reboot/types';

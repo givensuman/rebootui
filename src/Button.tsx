@@ -9,7 +9,8 @@ type ButtonProps = {
   size?: Size;
   disabled?: boolean;
   active?: boolean;
-} & GlobalProps & React.HTMLAttributes<HTMLButtonElement>
+} & GlobalProps &
+  React.HTMLAttributes<HTMLButtonElement>;
 
 const Button = React.forwardRef(
   (
