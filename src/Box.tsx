@@ -3,9 +3,8 @@
 import React from 'react';
 import { jsx } from '@emotion/react';
 import classnames from 'classnames';
-import handleCssProp from './_reboot/handleCssProp';
-import handleUtilityClasses from './_reboot/handleUtilityClasses';
-import { GlobalProps } from './_reboot/types';
+import handleCssProp, { CssProp } from './_reboot/handleCssProp';
+import handleUtilityClasses, { UtilityProps } from './_reboot/handleUtilityClasses';
 
 // Source: https://github.com/emotion-js/emotion/blob/master/packages/styled-base/types/helper.d.ts
 // A more precise version of just React.ComponentPropsWithoutRef on its own
@@ -62,7 +61,7 @@ export type PolymorphicComponentPropsWithRef<
 type Props = {
   children?: React.ReactNode;
   className?: string;
-} & GlobalProps;
+} & UtilityProps & CssProp
 
 type BoxProps<C extends React.ElementType> = PolymorphicComponentPropsWithRef<
   C,

@@ -5,39 +5,37 @@ import { type GlobalProps, type Variant, type Size } from './_reboot/types';
 
 type ButtonProps = {
   variant?: Variant | 'link';
-  type?: 'button' | 'submit' | 'reset';
   outlined?: boolean;
   size?: Size;
   disabled?: boolean;
   active?: boolean;
-} & GlobalProps &
-  React.HTMLAttributes<HTMLButtonElement>;
+} & GlobalProps & React.HTMLAttributes<HTMLButtonElement>
 
 const Button = React.forwardRef(
   (
     {
+      as = 'button',
       variant = 'primary',
-      type = 'button',
       outlined,
       size,
-      disabled,
-      active,
-
+      // props.disabled
+      // props.active
       ...props
     }: ButtonProps,
     ref: React.Ref<any>
   ) => {
     return (
       <Box
-        as="button"
+        as={as}
         className={classnames('btn', {
           [`btn-${variant}`]: variant && !outlined,
           [`btn-outline-${variant}`]: outlined,
           [`btn-${size}`]: size,
-          disabled: disabled,
-          active: active
+          disabled: props.disabled,
+          active: props.active
         })}
-        type={type}
+        aria-disabled={props.disabled}
+        role="button"
         ref={ref}
         {...props}
       >

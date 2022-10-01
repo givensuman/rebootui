@@ -1,7 +1,12 @@
+import React from 'react';
 import { type CssProp } from './handleCssProp';
 import { type UtilityProps } from './handleUtilityClasses';
 
-export type GlobalProps = {} & CssProp & UtilityProps;
+export type GlobalProps = {
+  as?: React.ElementType,
+  className?: string,
+  children?: React.ReactNode,
+} & CssProp & UtilityProps;
 
 export type Variant =
   | 'primary'

@@ -1,32 +1,24 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import '@popperjs/core';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 
-import Box from '../../src/Box';
-import { type GlobalProps } from '../../src/_reboot/types';
-
-const Button = (props: GlobalProps) => {
-  return (
-    <Box
-      as="a"
-      py={4}
-      aria-disabled={true}
-      bgColor="info"
-      css={`
-        margin-top: 2em;
-      `}
-      {...props}
-    >
-      Click Me
-    </Box>
-  );
-};
+import Button from '../../src/Button'
+import ButtonGroup from '../../src/ButtonGroup'
+import Alert from '../../src/Alert'
+import AlertHeading from '../../src/AlertHeading'
+import AlertLink from '../../src/AlertLink'
 
 function App() {
+
   return (
     <div>
-      <Button />
+      <Alert maxWidth="100" width="25" dismissible>
+        <AlertHeading>Hello</AlertHeading>
+        Hello Hello Hello Hello Hello
+        <hr />
+        <AlertLink as="a" ms="4" href="123">Go here</AlertLink>
+      </Alert>
     </div>
   );
 }
