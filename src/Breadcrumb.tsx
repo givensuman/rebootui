@@ -3,17 +3,10 @@ import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
-type BreadcrumbProps = {
-} & GlobalProps & React.HTMLAttributes<HTMLElement>
+type BreadcrumbProps = {} & GlobalProps & React.HTMLAttributes<HTMLElement>;
 
 const Breadcrumb = React.forwardRef(
-  (
-    {
-      as = 'nav',
-      ...props
-    }: BreadcrumbProps,
-    ref: React.Ref<any>
-  ) => {
+  ({ as = 'nav', ...props }: BreadcrumbProps, ref: React.Ref<any>) => {
     return (
       <Box
         as={as}
@@ -22,9 +15,7 @@ const Breadcrumb = React.forwardRef(
         ref={ref}
         {...props}
       >
-        <ol className="breadcrumb">
-          {props.children}
-        </ol>
+        <ol className="breadcrumb">{props.children}</ol>
       </Box>
     );
   }

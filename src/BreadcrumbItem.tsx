@@ -6,23 +6,19 @@ import { type GlobalProps } from './_reboot/types';
 type BreadcrumbItemProps = {
   active?: boolean;
   href?: string;
-} & GlobalProps & React.HTMLAttributes<HTMLLIElement>
+} & GlobalProps &
+  React.HTMLAttributes<HTMLLIElement>;
 
 const BreadcrumbItem = React.forwardRef(
   (
-    {
-      as = 'li',
-      active,
-      href,
-      ...props
-    }: BreadcrumbItemProps,
+    { as = 'li', active, href, ...props }: BreadcrumbItemProps,
     ref: React.Ref<any>
   ) => {
     return (
       <Box
         as={as}
         className={classnames('breadcrumb-item', {
-          'active': active
+          active: active
         })}
         aria-current={active && 'page'}
         ref={ref}

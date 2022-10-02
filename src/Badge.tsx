@@ -7,17 +7,12 @@ type BadgeProps = {
   variant?: Variant;
   pill?: boolean;
   label?: string;
-} & GlobalProps & React.HTMLAttributes<HTMLSpanElement>
+} & GlobalProps &
+  React.HTMLAttributes<HTMLSpanElement>;
 
 const Badge = React.forwardRef(
   (
-    {
-      as = 'span',
-      variant,
-      pill,
-      label,
-      ...props
-    }: BadgeProps,
+    { as = 'span', variant, pill, label, ...props }: BadgeProps,
     ref: React.Ref<any>
   ) => {
     return (

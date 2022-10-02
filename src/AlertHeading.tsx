@@ -3,7 +3,8 @@ import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
-type AlertHeadingProps = {} & GlobalProps & React.HTMLAttributes<HTMLHeadingElement>
+type AlertHeadingProps = {} & GlobalProps &
+  React.HTMLAttributes<HTMLHeadingElement>;
 
 const AlertHeading = React.forwardRef(
   ({ as = 'h4', ...props }: AlertHeadingProps, ref: React.Ref<any>) => {
