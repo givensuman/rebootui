@@ -7,9 +7,9 @@ type AlertLinkProps = {} & GlobalProps &
   React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const AlertLink = React.forwardRef(
-  ({ as = 'a', ...props }: AlertLinkProps, ref: React.Ref<any>) => {
+  ({ as = 'a', className, ...props }: AlertLinkProps, ref: React.Ref<any>) => {
     return (
-      <Box as={as} className={classnames('alert-link')} ref={ref} {...props}>
+      <Box as={as} className={classnames('alert-link', className)} ref={ref} {...props}>
         {props.children}
       </Box>
     );

@@ -12,16 +12,15 @@ const Collapse = React.forwardRef(
     const collapseState = useState(null);
 
     return (
-      // <Box
-      //   as={React.Fragment}
-      //   className={classnames('')}
-      //   ref={ref}
-      //   {...props}
-      // >
-      <CollapseContext.Provider value={collapseState}>
-        {props.children}
-      </CollapseContext.Provider>
-      // </Box>
+      <Box
+        as={as}
+        ref={ref}
+        {...props}
+      >
+        <CollapseContext.Provider value={collapseState}>
+          {props.children}
+        </CollapseContext.Provider>
+      </Box>
     );
   }
 );

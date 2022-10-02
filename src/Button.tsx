@@ -16,6 +16,7 @@ const Button = React.forwardRef(
   (
     {
       as = 'button',
+      className,
       variant = 'primary',
       outlined,
       size,
@@ -34,7 +35,7 @@ const Button = React.forwardRef(
           [`btn-${size}`]: size,
           disabled: props.disabled,
           active: props.active
-        })}
+        }, className)}
         aria-disabled={props.disabled}
         role="button"
         ref={ref}

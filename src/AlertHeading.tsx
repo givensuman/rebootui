@@ -7,9 +7,9 @@ type AlertHeadingProps = {} & GlobalProps &
   React.HTMLAttributes<HTMLHeadingElement>;
 
 const AlertHeading = React.forwardRef(
-  ({ as = 'h4', ...props }: AlertHeadingProps, ref: React.Ref<any>) => {
+  ({ as = 'h4', className, ...props }: AlertHeadingProps, ref: React.Ref<any>) => {
     return (
-      <Box as={as} className={classnames('alert-heading')} ref={ref} {...props}>
+      <Box as={as} className={classnames('alert-heading', className)} ref={ref} {...props}>
         {props.children}
       </Box>
     );

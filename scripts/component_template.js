@@ -6,12 +6,13 @@ import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
 type ${name}Props = {
-} & GlobalProps
+} & GlobalProps & React.HTMLAttributes<HTMLElement>
 
 const ${name} = React.forwardRef(
   (
     {
       as = 'div',
+      className,
       ...props
     }: ${name}Props,
     ref: React.Ref<any>

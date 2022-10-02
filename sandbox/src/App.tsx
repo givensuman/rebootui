@@ -19,9 +19,12 @@ function App() {
   return (
     <div>
       <Collapse>
-        <CollapseButton>Click Me</CollapseButton>
+        <CollapseButton className="123">Click Me</CollapseButton>
         <CollapseBody>aslkdhjaikejgqlwjegkqjwgeaslkjgd</CollapseBody>
       </Collapse>
+      <Button className="123">
+        Test
+      </Button>
     </div>
   );
 }

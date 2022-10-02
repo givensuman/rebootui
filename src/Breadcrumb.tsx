@@ -10,7 +10,6 @@ const Breadcrumb = React.forwardRef(
     return (
       <Box
         as={as}
-        className={props.className}
         aria-label="breadcrumb"
         ref={ref}
         {...props}

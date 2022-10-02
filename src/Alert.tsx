@@ -10,7 +10,7 @@ type AlertProps = {
 
 const Alert = React.forwardRef(
   (
-    { as = 'div', variant = 'primary', dismissible, ...props }: AlertProps,
+    { as = 'div', className, variant = 'primary', dismissible, ...props }: AlertProps,
     ref: React.Ref<any>
   ) => {
     return (
@@ -19,7 +19,7 @@ const Alert = React.forwardRef(
         className={classnames('alert', {
           [`alert-${variant}`]: variant,
           'alert-dismissible': dismissible
-        })}
+        }, className)}
         role="alert"
         ref={ref}
         {...props}

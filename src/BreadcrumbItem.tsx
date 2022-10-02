@@ -11,7 +11,7 @@ type BreadcrumbItemProps = {
 
 const BreadcrumbItem = React.forwardRef(
   (
-    { as = 'li', active, href, ...props }: BreadcrumbItemProps,
+    { as = 'li', className, active, href, ...props }: BreadcrumbItemProps,
     ref: React.Ref<any>
   ) => {
     return (
@@ -19,7 +19,7 @@ const BreadcrumbItem = React.forwardRef(
         as={as}
         className={classnames('breadcrumb-item', {
           active: active
-        })}
+        }, className)}
         aria-current={active && 'page'}
         ref={ref}
         {...props}

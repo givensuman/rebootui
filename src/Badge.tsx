@@ -12,7 +12,7 @@ type BadgeProps = {
 
 const Badge = React.forwardRef(
   (
-    { as = 'span', variant, pill, label, ...props }: BadgeProps,
+    { as = 'span', className, variant, pill, label, ...props }: BadgeProps,
     ref: React.Ref<any>
   ) => {
     return (
@@ -21,7 +21,7 @@ const Badge = React.forwardRef(
         className={classnames('badge', {
           [`text-bg-${variant}`]: variant,
           'rounded-pill': pill
-        })}
+        }, className)}
         ref={ref}
         {...props}
       >

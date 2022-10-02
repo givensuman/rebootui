@@ -90,10 +90,10 @@ export const Box: Component = React.forwardRef(
     const Component = as || 'div';
 
     const [utilityClasses, filteredProps] = handleUtilityClasses(props);
-
+    
     return (
       <Component
-        className={classnames(className, utilityClasses)}
+        className={classnames(utilityClasses, className)}
         css={handleCssProp(css)}
         ref={ref}
         {...filteredProps}

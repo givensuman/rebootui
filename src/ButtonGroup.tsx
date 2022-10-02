@@ -15,6 +15,7 @@ const ButtonGroup = React.forwardRef(
   (
     {
       as = 'div',
+      className,
       role = 'group',
       label,
       size,
@@ -30,7 +31,7 @@ const ButtonGroup = React.forwardRef(
           'btn-group': !vertical,
           [`btn-group-${size}`]: size,
           'btn-group-vertical': vertical
-        })}
+        }, className)}
         role={role}
         aria-label={label}
         ref={ref}

@@ -13,7 +13,7 @@ type CollapseBodyProps = {
 
 const CollapseBody = React.forwardRef(
   (
-    { as = 'div', horizontal, toggle, ...props }: CollapseBodyProps,
+    { as = 'div', className, horizontal, toggle, ...props }: CollapseBodyProps,
     ref: React.Ref<any>
   ) => {
     const [_, setCollapseState] = useContext(CollapseContext);
@@ -35,7 +35,7 @@ const CollapseBody = React.forwardRef(
         as={as}
         className={classnames('collapse', {
           'collapse-horizontal': horizontal
-        })}
+        }, className)}
         ref={collapseRef}
         {...props}
       >
