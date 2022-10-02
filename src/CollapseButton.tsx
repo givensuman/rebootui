@@ -1,24 +1,19 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { CollapseContext } from './Collapse'
-import Button, { type ButtonProps } from './Button'
+import { CollapseContext } from './Collapse';
+import Button, { type ButtonProps } from './Button';
 
 type CollapseButtonProps = {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-} & ButtonProps
+} & ButtonProps;
 
 const CollapseButton = React.forwardRef(
   (
-    {
-      as = 'button',
-      onClick,
-      ...props
-    }: CollapseButtonProps,
+    { as = 'button', onClick, ...props }: CollapseButtonProps,
     ref: React.Ref<any>
   ) => {
-
     const [collapseState] = useContext(CollapseContext);
     const [toggle, setToggle] = useState(false);
-  
+
     useEffect(() => {
       if (toggle) {
         collapseState?.show();
@@ -26,7 +21,7 @@ const CollapseButton = React.forwardRef(
         collapseState?.hide();
       }
     }, [toggle]);
-  
+
     const handleToggle = () => setToggle((state) => !state);
 
     return (

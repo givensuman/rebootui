@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps, type Variant, type Size } from './_reboot/types';
 
-type ButtonProps = {
+export type ButtonProps = {
   variant?: Variant | 'link';
   outlined?: boolean;
   size?: Size;
