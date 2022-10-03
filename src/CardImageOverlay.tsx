@@ -4,7 +4,7 @@ import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
 type CardImageOverlayProps = {
-} & GlobalProps & React.HTMLAttributes<HTMLElement>
+} & GlobalProps & React.HTMLAttributes<HTMLDivElement>
 
 const CardImageOverlay = React.forwardRef(
   (
@@ -18,7 +18,7 @@ const CardImageOverlay = React.forwardRef(
     return (
       <Box
         as={as}
-        className={classnames('')}
+        className={classnames('card-img-overlay', className)}
         ref={ref}
         {...props}
       >

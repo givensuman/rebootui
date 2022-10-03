@@ -4,13 +4,15 @@ import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
 type CardImageProps = {
-} & GlobalProps & React.HTMLAttributes<HTMLElement>
+  placement?: 'top' | 'bottom' | 'overlay';
+} & GlobalProps & React.ImgHTMLAttributes<HTMLImageElement>
 
 const CardImage = React.forwardRef(
   (
     {
-      as = 'div',
+      as = 'img',
       className,
+      placement = 'top',
       ...props
     }: CardImageProps,
     ref: React.Ref<any>
@@ -18,12 +20,12 @@ const CardImage = React.forwardRef(
     return (
       <Box
         as={as}
-        className={classnames('')}
+        className={classnames({
+          [`card-img-${placement}`]: placement
+        }, className)}
         ref={ref}
         {...props}
-      >
-        {props.children}
-      </Box>
+      />
     );
   }
 );

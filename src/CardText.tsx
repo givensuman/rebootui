@@ -4,12 +4,12 @@ import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
 type CardTextProps = {
-} & GlobalProps & React.HTMLAttributes<HTMLElement>
+} & GlobalProps & React.HTMLAttributes<HTMLParagraphElement>
 
 const CardText = React.forwardRef(
   (
     {
-      as = 'div',
+      as = 'p',
       className,
       ...props
     }: CardTextProps,
@@ -18,7 +18,7 @@ const CardText = React.forwardRef(
     return (
       <Box
         as={as}
-        className={classnames('')}
+        className={classnames('card-text', className)}
         ref={ref}
         {...props}
       >

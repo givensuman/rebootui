@@ -4,12 +4,12 @@ import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
 type CardSubtitleProps = {
-} & GlobalProps & React.HTMLAttributes<HTMLElement>
+} & GlobalProps & React.HTMLAttributes<HTMLHeadingElement>
 
 const CardSubtitle = React.forwardRef(
   (
     {
-      as = 'div',
+      as = 'h6',
       className,
       ...props
     }: CardSubtitleProps,
@@ -18,7 +18,7 @@ const CardSubtitle = React.forwardRef(
     return (
       <Box
         as={as}
-        className={classnames('')}
+        className={classnames('card-subtitle', className)}
         ref={ref}
         {...props}
       >
