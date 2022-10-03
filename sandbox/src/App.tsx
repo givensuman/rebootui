@@ -14,17 +14,16 @@ import BreadcrumbItem from '../../src/BreadcrumbItem';
 import Collapse from '../../src/Collapse';
 import CollapseBody from '../../src/CollapseBody';
 import CollapseButton from '../../src/CollapseButton';
+import Tooltip from '../../src/Tooltip'
+import Spinner from '../../src/Spinner'
 
 function App() {
   return (
     <div>
-      <Collapse>
-        <CollapseButton className="123">Click Me</CollapseButton>
-        <CollapseBody>aslkdhjaikejgqlwjegkqjwgeaslkjgd</CollapseBody>
-      </Collapse>
-      <Button className="123">
-        Test
-      </Button>
+      <Tooltip label="Hi there" placement="bottom">
+        <Box as="h1" width="25">Hover ME</Box>
+      </Tooltip>
+      <Spinner mx="auto" my="auto"/>
     </div>
   );
 }
