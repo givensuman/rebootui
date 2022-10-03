@@ -17,9 +17,13 @@ const BreadcrumbItem = React.forwardRef(
     return (
       <Box
         as={as}
-        className={classnames('breadcrumb-item', {
-          active: active
-        }, className)}
+        className={classnames(
+          'breadcrumb-item',
+          {
+            active: active
+          },
+          className
+        )}
         aria-current={active && 'page'}
         ref={ref}
         {...props}

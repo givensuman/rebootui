@@ -7,7 +7,8 @@ type SpinnerProps = {
   variant?: Variant | 'link';
   type?: 'border' | 'grow';
   small?: boolean;
-} & GlobalProps & React.HTMLAttributes<HTMLDivElement>
+} & GlobalProps &
+  React.HTMLAttributes<HTMLDivElement>;
 
 const Spinner = React.forwardRef(
   (
@@ -24,11 +25,14 @@ const Spinner = React.forwardRef(
     return (
       <Box
         as={as}
-        className={classnames({
-          [`spinner-${type}`]: type,
-          [`text-${variant}`]: variant,
-          [`spinner-${type}-sm`]: small && type
-        }, className)}
+        className={classnames(
+          {
+            [`spinner-${type}`]: type,
+            [`text-${variant}`]: variant,
+            [`spinner-${type}-sm`]: small && type
+          },
+          className
+        )}
         role="status"
         ref={ref}
         {...props}

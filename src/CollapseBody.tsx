@@ -33,9 +33,13 @@ const CollapseBody = React.forwardRef(
     return (
       <Box
         as={as}
-        className={classnames('collapse', {
-          'collapse-horizontal': horizontal
-        }, className)}
+        className={classnames(
+          'collapse',
+          {
+            'collapse-horizontal': horizontal
+          },
+          className
+        )}
         ref={collapseRef}
         {...props}
       >

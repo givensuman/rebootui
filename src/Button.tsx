@@ -29,13 +29,17 @@ const Button = React.forwardRef(
     return (
       <Box
         as={as}
-        className={classnames('btn', {
-          [`btn-${variant}`]: variant && !outlined,
-          [`btn-outline-${variant}`]: outlined,
-          [`btn-${size}`]: size,
-          disabled: props.disabled,
-          active: props.active
-        }, className)}
+        className={classnames(
+          'btn',
+          {
+            [`btn-${variant}`]: variant && !outlined,
+            [`btn-outline-${variant}`]: outlined,
+            [`btn-${size}`]: size,
+            disabled: props.disabled,
+            active: props.active
+          },
+          className
+        )}
         aria-disabled={props.disabled}
         role="button"
         ref={ref}

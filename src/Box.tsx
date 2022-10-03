@@ -90,7 +90,7 @@ export const Box: Component = React.forwardRef(
     const Component = as || 'div';
 
     const [utilityClasses, filteredProps] = handleUtilityClasses(props);
-    
+
     return (
       <Component
         className={classnames(utilityClasses, className)}

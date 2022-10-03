@@ -14,16 +14,18 @@ import BreadcrumbItem from '../../src/BreadcrumbItem';
 import Collapse from '../../src/Collapse';
 import CollapseBody from '../../src/CollapseBody';
 import CollapseButton from '../../src/CollapseButton';
-import Tooltip from '../../src/Tooltip'
-import Spinner from '../../src/Spinner'
+import Tooltip from '../../src/Tooltip';
+import Spinner from '../../src/Spinner';
 
 function App() {
   return (
     <div>
       <Tooltip label="Hi there" placement="bottom">
-        <Box as="h1" width="25">Hover ME</Box>
+        <Box as="h1" width="25">
+          Hover ME
+        </Box>
       </Tooltip>
-      <Spinner mx="auto" my="auto"/>
+      <Spinner mx="auto" my="auto" />
     </div>
   );
 }

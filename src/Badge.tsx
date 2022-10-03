@@ -18,10 +18,14 @@ const Badge = React.forwardRef(
     return (
       <Box
         as={as}
-        className={classnames('badge', {
-          [`text-bg-${variant}`]: variant,
-          'rounded-pill': pill
-        }, className)}
+        className={classnames(
+          'badge',
+          {
+            [`text-bg-${variant}`]: variant,
+            'rounded-pill': pill
+          },
+          className
+        )}
         ref={ref}
         {...props}
       >

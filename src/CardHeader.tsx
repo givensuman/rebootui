@@ -3,16 +3,11 @@ import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
-type CardHeaderProps = {
-} & GlobalProps & React.HTMLAttributes<HTMLDivElement>
+type CardHeaderProps = {} & GlobalProps & React.HTMLAttributes<HTMLDivElement>;
 
 const CardHeader = React.forwardRef(
   (
-    {
-      as = 'div',
-      className,
-      ...props
-    }: CardHeaderProps,
+    { as = 'div', className, ...props }: CardHeaderProps,
     ref: React.Ref<any>
   ) => {
     return (

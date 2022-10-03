@@ -27,11 +27,14 @@ const ButtonGroup = React.forwardRef(
     return (
       <Box
         as={as}
-        className={classnames({
-          'btn-group': !vertical,
-          [`btn-group-${size}`]: size,
-          'btn-group-vertical': vertical
-        }, className)}
+        className={classnames(
+          {
+            'btn-group': !vertical,
+            [`btn-group-${size}`]: size,
+            'btn-group-vertical': vertical
+          },
+          className
+        )}
         role={role}
         aria-label={label}
         ref={ref}

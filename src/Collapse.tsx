@@ -12,11 +12,7 @@ const Collapse = React.forwardRef(
     const collapseState = useState(null);
 
     return (
-      <Box
-        as={as}
-        ref={ref}
-        {...props}
-      >
+      <Box as={as} ref={ref} {...props}>
         <CollapseContext.Provider value={collapseState}>
           {props.children}
         </CollapseContext.Provider>

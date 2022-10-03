@@ -3,18 +3,11 @@ import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
-type CardLinkProps = {
-} & GlobalProps & React.AnchorHTMLAttributes<HTMLAnchorElement>
+type CardLinkProps = {} & GlobalProps &
+  React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const CardLink = React.forwardRef(
-  (
-    {
-      as = 'a',
-      className,
-      ...props
-    }: CardLinkProps,
-    ref: React.Ref<any>
-  ) => {
+  ({ as = 'a', className, ...props }: CardLinkProps, ref: React.Ref<any>) => {
     return (
       <Box
         as={as}

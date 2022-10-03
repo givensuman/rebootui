@@ -8,12 +8,7 @@ type BreadcrumbProps = {} & GlobalProps & React.HTMLAttributes<HTMLElement>;
 const Breadcrumb = React.forwardRef(
   ({ as = 'nav', ...props }: BreadcrumbProps, ref: React.Ref<any>) => {
     return (
-      <Box
-        as={as}
-        aria-label="breadcrumb"
-        ref={ref}
-        {...props}
-      >
+      <Box as={as} aria-label="breadcrumb" ref={ref} {...props}>
         <ol className="breadcrumb">{props.children}</ol>
       </Box>
     );
