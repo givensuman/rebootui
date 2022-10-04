@@ -1,7 +1,6 @@
 Carousel
-Dropdowns
-List group
-Modal
+List group -> Tab Panes
+Modal -> Add props like onShow and onHide (for all JS components)
 Navbar
 Navs & tabs
 Offcanvas
