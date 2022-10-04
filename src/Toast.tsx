@@ -2,14 +2,15 @@ import React, { useRef, useState, useLayoutEffect, useEffect } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
-import { Toast as bsToast } from 'bootstrap'
+import { Toast as bsToast } from 'bootstrap';
 
 type ToastProps = {
-  show: boolean,
-  animation?: boolean,
-  autohide?: boolean,
-  delay?: number,
-} & GlobalProps & React.HTMLAttributes<HTMLDivElement>
+  show: boolean;
+  animation?: boolean;
+  autohide?: boolean;
+  delay?: number;
+} & GlobalProps &
+  React.HTMLAttributes<HTMLDivElement>;
 
 const Toast = React.forwardRef(
   (
@@ -24,29 +25,30 @@ const Toast = React.forwardRef(
     }: ToastProps,
     ref: React.Ref<any>
   ) => {
-
-    const toastRef = useRef<any>(ref)
-    const [toastState, setToastState] = useState<any>(null)
+    const toastRef = useRef<any>(ref);
+    const [toastState, setToastState] = useState<any>(null);
 
     useLayoutEffect(() => {
       if (toastRef.current) {
-        setToastState(new bsToast(toastRef.current, {
-          animation: animation,
-          autohide: autohide,
-          delay: delay
-        }))
+        setToastState(
+          new bsToast(toastRef.current, {
+            animation: animation,
+            autohide: autohide,
+            delay: delay
+          })
+        );
       }
-    }, [toastRef, animation, autohide, delay])
+    }, [toastRef, animation, autohide, delay]);
 
     useEffect(() => {
       if (toastState) {
         if (show) {
-          toastState?.show()
+          toastState?.show();
         } else {
-          toastState?.hide()
+          toastState?.hide();
         }
       }
-    }, [show])
+    }, [show]);
 
     return (
       <Box

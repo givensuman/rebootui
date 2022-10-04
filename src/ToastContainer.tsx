@@ -3,16 +3,12 @@ import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
-type ToastContainerProps = {
-} & GlobalProps & React.HTMLAttributes<HTMLDivElement>
+type ToastContainerProps = {} & GlobalProps &
+  React.HTMLAttributes<HTMLDivElement>;
 
 const ToastContainer = React.forwardRef(
   (
-    {
-      as = 'div',
-      className,
-      ...props
-    }: ToastContainerProps,
+    { as = 'div', className, ...props }: ToastContainerProps,
     ref: React.Ref<any>
   ) => {
     return (

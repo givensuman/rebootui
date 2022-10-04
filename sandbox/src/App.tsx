@@ -31,12 +31,12 @@ import ModalBody from '../../src/ModalBody';
 import ModalHeader from '../../src/ModalHeader';
 import ModalFooter from '../../src/ModalFooter';
 import ModalTitle from '../../src/ModalTitle';
-import Toast from '../../src/Toast'
-import ToastHeader from '../../src/ToastHeader'
-import ToastBody from '../../src/ToastBody'
-import ToastContainer from '../../src/ToastContainer'
-import Progress from '../../src/Progress'
-import ProgressBar from '../../src/ProgressBar'
+import Toast from '../../src/Toast';
+import ToastHeader from '../../src/ToastHeader';
+import ToastBody from '../../src/ToastBody';
+import ToastContainer from '../../src/ToastContainer';
+import Progress from '../../src/Progress';
+import ProgressBar from '../../src/ProgressBar';
 
 function App() {
   const [show, setShow] = useState(false);
@@ -45,7 +45,13 @@ function App() {
   return (
     <div>
       <Progress width="25" mt={2} ms={2}>
-        <ProgressBar width="50" bgColor="secondary" rounded="pill" animated striped/>
+        <ProgressBar
+          width="50"
+          bgColor="secondary"
+          rounded="pill"
+          animated
+          striped
+        />
       </Progress>
     </div>
   );
