@@ -3,16 +3,12 @@ import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
-type DropdownHeaderProps = {
-} & GlobalProps & React.HTMLAttributes<HTMLHeadingElement>
+type DropdownHeaderProps = {} & GlobalProps &
+  React.HTMLAttributes<HTMLHeadingElement>;
 
 const DropdownHeader = React.forwardRef(
   (
-    {
-      as = 'h6',
-      className,
-      ...props
-    }: DropdownHeaderProps,
+    { as = 'h6', className, ...props }: DropdownHeaderProps,
     ref: React.Ref<any>
   ) => {
     return (

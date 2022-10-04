@@ -3,16 +3,11 @@ import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
-type ModalFooterProps = {
-} & GlobalProps & React.HTMLAttributes<HTMLDivElement>
+type ModalFooterProps = {} & GlobalProps & React.HTMLAttributes<HTMLDivElement>;
 
 const ModalFooter = React.forwardRef(
   (
-    {
-      as = 'div',
-      className,
-      ...props
-    }: ModalFooterProps,
+    { as = 'div', className, ...props }: ModalFooterProps,
     ref: React.Ref<any>
   ) => {
     return (

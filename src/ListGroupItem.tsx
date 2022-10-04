@@ -4,11 +4,12 @@ import Box from './Box';
 import { type GlobalProps, type Variant } from './_reboot/types';
 
 type ListGroupItemProps = {
-  variant?: Variant,
-  action?: boolean,
-  active?: boolean,
-  disabled?: boolean,
-} & GlobalProps & React.AnchorHTMLAttributes<HTMLAnchorElement>
+  variant?: Variant;
+  action?: boolean;
+  active?: boolean;
+  disabled?: boolean;
+} & GlobalProps &
+  React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const ListGroupItem = React.forwardRef(
   (
@@ -26,12 +27,16 @@ const ListGroupItem = React.forwardRef(
     return (
       <Box
         as={as}
-        className={classnames('list-group-item', {
-          [`list-group-item-${variant}`]: variant,
-          'list-group-item-action': action,
-          'active': props.active,
-          'disabled': props.disabled,
-        }, className)}
+        className={classnames(
+          'list-group-item',
+          {
+            [`list-group-item-${variant}`]: variant,
+            'list-group-item-action': action,
+            active: props.active,
+            disabled: props.disabled
+          },
+          className
+        )}
         aria-current={props.active}
         aria-disabled={props.disabled}
         ref={ref}

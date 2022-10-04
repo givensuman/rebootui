@@ -3,16 +3,12 @@ import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
-type DropdownDividerProps = {
-} & GlobalProps & React.HTMLAttributes<HTMLHRElement>
+type DropdownDividerProps = {} & GlobalProps &
+  React.HTMLAttributes<HTMLHRElement>;
 
 const DropdownDivider = React.forwardRef(
   (
-    {
-      as = 'hr',
-      className,
-      ...props
-    }: DropdownDividerProps,
+    { as = 'hr', className, ...props }: DropdownDividerProps,
     ref: React.Ref<any>
   ) => {
     return (

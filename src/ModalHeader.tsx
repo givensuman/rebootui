@@ -3,16 +3,11 @@ import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
-type ModalHeaderProps = {
-} & GlobalProps & React.HTMLAttributes<HTMLDivElement>
+type ModalHeaderProps = {} & GlobalProps & React.HTMLAttributes<HTMLDivElement>;
 
 const ModalHeader = React.forwardRef(
   (
-    {
-      as = 'div',
-      className,
-      ...props
-    }: ModalHeaderProps,
+    { as = 'div', className, ...props }: ModalHeaderProps,
     ref: React.Ref<any>
   ) => {
     return (

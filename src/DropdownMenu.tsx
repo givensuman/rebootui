@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps, type Breakpoints } from './_reboot/types';
-import joinPropArray from './_reboot/joinPropArray'
+import joinPropArray from './_reboot/joinPropArray';
 
 type DropdownAlignment =
   | 'start'
@@ -13,26 +13,25 @@ type DropdownAlignment =
 type DropdownMenuProps = {
   dark?: boolean;
   align?: DropdownAlignment | DropdownAlignment[];
-} & GlobalProps & React.HTMLAttributes<HTMLDivElement>
+} & GlobalProps &
+  React.HTMLAttributes<HTMLDivElement>;
 
 const DropdownMenu = React.forwardRef(
   (
-    {
-      as = 'div',
-      dark,
-      align,
-      className,
-      ...props
-    }: DropdownMenuProps,
+    { as = 'div', dark, align, className, ...props }: DropdownMenuProps,
     ref: React.Ref<any>
   ) => {
     return (
       <Box
         as={as}
-        className={classnames('dropdown-menu', {
-          'dropdown-menu-dark': dark,
-          [joinPropArray(align, 'dropdown-menu-')]: align
-        }, className)}
+        className={classnames(
+          'dropdown-menu',
+          {
+            'dropdown-menu-dark': dark,
+            [joinPropArray(align, 'dropdown-menu-')]: align
+          },
+          className
+        )}
         ref={ref}
         {...props}
       >

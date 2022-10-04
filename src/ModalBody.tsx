@@ -3,16 +3,11 @@ import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
-type ModalBodyProps = {
-} & GlobalProps & React.HTMLAttributes<HTMLDivElement>
+type ModalBodyProps = {} & GlobalProps & React.HTMLAttributes<HTMLDivElement>;
 
 const ModalBody = React.forwardRef(
   (
-    {
-      as = 'div',
-      className,
-      ...props
-    }: ModalBodyProps,
+    { as = 'div', className, ...props }: ModalBodyProps,
     ref: React.Ref<any>
   ) => {
     return (

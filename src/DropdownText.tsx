@@ -3,16 +3,12 @@ import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps } from './_reboot/types';
 
-type DropdownTextProps = {
-} & GlobalProps & React.HTMLAttributes<HTMLSpanElement>
+type DropdownTextProps = {} & GlobalProps &
+  React.HTMLAttributes<HTMLSpanElement>;
 
 const DropdownText = React.forwardRef(
   (
-    {
-      as = 'span',
-      className,
-      ...props
-    }: DropdownTextProps,
+    { as = 'span', className, ...props }: DropdownTextProps,
     ref: React.Ref<any>
   ) => {
     return (

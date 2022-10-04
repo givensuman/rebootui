@@ -6,7 +6,8 @@ import { type GlobalProps } from './_reboot/types';
 type DropdownProps = {
   direction?: 'start' | 'end' | 'up' | 'down';
   centered?: boolean;
-} & GlobalProps & React.HTMLAttributes<HTMLDivElement>
+} & GlobalProps &
+  React.HTMLAttributes<HTMLDivElement>;
 
 const Dropdown = React.forwardRef(
   (
@@ -22,11 +23,14 @@ const Dropdown = React.forwardRef(
     return (
       <Box
         as={as}
-        className={classnames({
-          [`drop${direction}`]: direction,
-          [`drop${direction}-center`]:
-            direction === ('down' || 'up') && centered
-        }, className)}
+        className={classnames(
+          {
+            [`drop${direction}`]: direction,
+            [`drop${direction}-center`]:
+              direction === ('down' || 'up') && centered
+          },
+          className
+        )}
         ref={ref}
         {...props}
       >

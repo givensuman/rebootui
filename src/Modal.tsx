@@ -2,18 +2,19 @@ import React, { useRef, useState, useLayoutEffect, useEffect } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import { type GlobalProps, type Size } from './_reboot/types';
-import { Modal as bsModal } from 'bootstrap'
+import { Modal as bsModal } from 'bootstrap';
 
 type ModalProps = {
-  show: boolean,
-  backdrop?: boolean | 'static',
-  focus?: boolean,
-  keyboard?: boolean,
-  scrollable?: boolean,
-  centered?: boolean,
-  size?: Size | 'xl',
-  fullscreen?: boolean | Size | 'md' | 'xl' | 'xxl'
-} & GlobalProps & React.HTMLAttributes<HTMLDivElement>
+  show: boolean;
+  backdrop?: boolean | 'static';
+  focus?: boolean;
+  keyboard?: boolean;
+  scrollable?: boolean;
+  centered?: boolean;
+  size?: Size | 'xl';
+  fullscreen?: boolean | Size | 'md' | 'xl' | 'xxl';
+} & GlobalProps &
+  React.HTMLAttributes<HTMLDivElement>;
 
 const Modal = React.forwardRef(
   (
@@ -32,47 +33,44 @@ const Modal = React.forwardRef(
     }: ModalProps,
     ref: React.Ref<any>
   ) => {
-
-    const modalRef = useRef<any>(ref)
-    const [modalState, setModalState] = useState<any>(null)
+    const modalRef = useRef<any>(ref);
+    const [modalState, setModalState] = useState<any>(null);
 
     useLayoutEffect(() => {
       if (modalRef.current) {
-        setModalState(new bsModal(modalRef.current, {
-          backdrop: backdrop,
-          focus: focus,
-          keyboard: keyboard
-        }))
+        setModalState(
+          new bsModal(modalRef.current, {
+            backdrop: backdrop,
+            focus: focus,
+            keyboard: keyboard
+          })
+        );
       }
-    }, [modalRef, backdrop, focus, keyboard])
+    }, [modalRef, backdrop, focus, keyboard]);
 
     useEffect(() => {
       if (modalState) {
         if (show) {
-          modalState?.show()
+          modalState?.show();
         } else {
-          modalState?.hide()
+          modalState?.hide();
         }
       }
-    }, [show])
+    }, [show]);
 
     return (
-      <Box
-        as={as}
-        className={classnames('modal')}
-        ref={modalRef}
-        {...props}
-      >
-        <div className={classnames('modal-dialog', {
-          'modal-dialog-scrollable': scrollable,
-          'modal-dialog-centered': centered,
-          [`modal-${size}`]: size,
-          'modal-fullscreen': fullscreen && typeof fullscreen === 'boolean',
-          [`modal-fullscreen-${fullscreen}-down`]: fullscreen && typeof fullscreen === 'string'
-        })}>
-          <div className="modal-content">
-            {props.children}
-          </div>
+      <Box as={as} className={classnames('modal')} ref={modalRef} {...props}>
+        <div
+          className={classnames('modal-dialog', {
+            'modal-dialog-scrollable': scrollable,
+            'modal-dialog-centered': centered,
+            [`modal-${size}`]: size,
+            'modal-fullscreen': fullscreen && typeof fullscreen === 'boolean',
+            [`modal-fullscreen-${fullscreen}-down`]:
+              fullscreen && typeof fullscreen === 'string'
+          })}
+        >
+          <div className="modal-content">{props.children}</div>
         </div>
       </Box>
     );
