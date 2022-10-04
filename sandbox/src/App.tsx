@@ -31,6 +31,12 @@ import ModalBody from '../../src/ModalBody';
 import ModalHeader from '../../src/ModalHeader';
 import ModalFooter from '../../src/ModalFooter';
 import ModalTitle from '../../src/ModalTitle';
+import Toast from '../../src/Toast'
+import ToastHeader from '../../src/ToastHeader'
+import ToastBody from '../../src/ToastBody'
+import ToastContainer from '../../src/ToastContainer'
+import Progress from '../../src/Progress'
+import ProgressBar from '../../src/ProgressBar'
 
 function App() {
   const [show, setShow] = useState(false);
@@ -38,19 +44,9 @@ function App() {
 
   return (
     <div>
-      <Button onClick={toggle}>Click</Button>
-      <Modal show={show} keyboard={true}>
-        <ModalHeader>
-          <ModalTitle>Hello</ModalTitle>
-          <CloseButton onClick={() => setShow(false)} />
-        </ModalHeader>
-        <ModalBody>
-          <Box as={'p'}>aslkjdalksjdlaksjd</Box>
-        </ModalBody>
-        <ModalFooter>
-          <Button>Click Me</Button>
-        </ModalFooter>
-      </Modal>
+      <Progress width="25" mt={2} ms={2}>
+        <ProgressBar width="50" bgColor="secondary" rounded="pill" animated striped/>
+      </Progress>
     </div>
   );
 }
